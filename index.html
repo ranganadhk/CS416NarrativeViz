@@ -9,7 +9,7 @@
 </svg>
 <script>
 async function init() {
-     await d3.csv("https://github.com/ranganadhk/CS416NarrativeViz/blob/main/sample_aviation.csv")    
+     await d3.csv("sample_aviation.csv")    
     .then(function(data) {
        data.forEach(function(d) { 
         //    d['AverageCityMPG'] = +d['AverageCityMPG'],
