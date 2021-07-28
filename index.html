@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 
 <html>
-<title> D3 Test </title>
+<title> Narrative Viz Assignment </title>
+<script src='https://d3js.org/d3.v5.min.js'></script>
+<style> circle {fill: lightblue; stroke: black;} </style>
+<body onload='init()'>
+<svg width=300 height=300>
+</svg>
+<script>
+async function init() {
+     await d3.csv("https://github.com/ranganadhk/CS416NarrativeViz/blob/main/sample_aviation.csv")    
+    .then(function(data) {
+       data.forEach(function(d) { 
+        //    d['AverageCityMPG'] = +d['AverageCityMPG'],
+         //   d['AverageHighwayMPG'] = +d['AverageHighwayMPG'],
+        //    d['EngineCylinders'] = +d['EngineCylinders']
+        })
 
-<body>
-<p> first paragraph </p>
-<div class = "canva" </div>
+        console.log(data);
+    })
+    .catch (function() {
+        console.log("ERROR Reading CSV file")
+    })
+}
+//init()
+
+//AverageCityMPG: "25"
+//AverageHighwayMPG: "35"
+//EngineCylinders: "4"
+//Fuel: "Gasoline"
+//Make: "Acura"
+
+</script>
 </body>
-<script  src= "practice.js"  </script>
-
 </html>
