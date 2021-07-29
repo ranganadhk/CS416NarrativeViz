@@ -1,35 +1,185 @@
 <!DOCTYPE html>
-
+<meta charset="utf-8">
 <html>
 <title> Narrative Viz Assignment </title>
 <script src='https://d3js.org/d3.v5.min.js'></script>
-<style> circle {fill: lightblue; stroke: black;} </style>
+<style> 
+    .bar {
+      fill: steelblue;
+    }
+    .bar:hover {
+      fill: brown;
+    }
+    .axis--x path {
+      display: none;
+    }
+    .line {
+      fill: none;
+      stroke: steelblue;
+      stroke-width: 3px;
+    }
+    .circle {
+      fill: steelblue;
+    }
+
+    .line-path {
+        fill: none;
+  
+        stroke-width: 5;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+        mix-blend-mode: multiply;
+    }
+    text {
+        font-family: sans-serif;
+    }
+
+    .tick text {
+        font-size: .7rem;
+        fill: #635F5D;
+    }
+
+    .tick line {
+        stroke: #C0C0BB;
+    }
+
+    .axis-label {
+        font-size: 4em;
+        fill: #8E8883;
+    }
+
+    .title {
+        font-size: 2.2em;
+        fill: #635F5D;
+    }
+</style>
 <body onload='init()'>
-<svg width=300 height=300>
+<svg width=960 height=500>
 </svg>
 <script>
+
 async function init() {
-     await d3.csv("sample_aviation.csv")    
+
+     await d3.csv("2019AggAviationData.csv")    
     .then(function(data) {
+       const timeParser = d3.timeParse("%Y-%m-%d")
+
        data.forEach(function(d) { 
-        //    d['AverageCityMPG'] = +d['AverageCityMPG'],
-         //   d['AverageHighwayMPG'] = +d['AverageHighwayMPG'],
-        //    d['EngineCylinders'] = +d['EngineCylinders']
+            d['FLIGHT_COUNT'] = +d['FLIGHT_COUNT']
+            d['FL_DATE'] = new Date(d['FL_DATE'])
         })
+        svg = d3.select("body").select("svg")
+        const width = +svg.attr('width');
+        const height = +svg.attr('height');
+
+        const title = 'Total Number of Flights Per State in April 2019';
+
+        const xValue = d => d.FL_DATE;
+        const xAxisLabel = 'Date';
+        const yValue = d => d.FLIGHT_COUNT;
+        const circleRadius = 6;
+        const yAxisLabel = 'Flights Count';
+
+        const colorValue = d => d.ORIGIN_STATE;
+
+        const margin = { top: 60, right: 160, bottom: 88, left: 105 };
+        const innerWidth = width - margin.left - margin.right;
+        const innerHeight = height - margin.top - margin.bottom;
+        const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+        const g = svg.append('g')
+                     .attr('transform', `translate(${margin.left},${margin.top})`);
+
 
         console.log(data);
+        var xScale = d3.scaleTime()
+                      .domain(d3.extent(data,xValue))
+                      .range([0,innerWidth])
+                      .nice()
+
+        var xAxis = d3.axisBottom(xScale)
+                     // .scale(xScale)
+                      .tickSize(-innerHeight)
+                      .tickPadding(15)
+                      .ticks(10)
+                      .tickFormat(d3.timeFormat("%m/%d"));
+        //console.log(xScale)
+
+        var yScale = d3.scaleLinear()
+                       .domain(d3.extent(data,yValue))
+                       .range([innerHeight,0])
+                       //.padding(0.1)
+            //yScale.domain(data.map(function(d) { return d.ORIGIN_STATE; }));
+        //var yAxis = d3.axisLeft()
+          //            .scale(yScale)
+
+        const yAxis = d3.axisLeft()
+                        .scale(yScale)
+                        .tickSize(-innerWidth)
+                        .tickPadding(10);
+
+
+         const yAxisG = g.append('g').call(yAxis);
+        yAxisG.selectAll('.domain').remove();
+  
+         yAxisG.append('text')
+              .attr('class', 'axis-label')
+              .attr('y', -60)
+              .attr('x', -innerHeight / 2)
+              .attr('fill', 'black')
+              .attr('transform', `rotate(-90)`)
+              .attr('text-anchor', 'middle')
+              .text(yAxisLabel); 
+  
+        const xAxisG = g.append('g').call(xAxis)
+                .attr('transform', `translate(0,${innerHeight})`);
+  
+        xAxisG.select('.domain').remove();
+  
+        xAxisG.append('text')
+            .attr('class', 'axis-label')
+            .attr('y', 80)
+            .attr('x', innerWidth / 2)
+            .attr('fill', 'black')
+            .text(xAxisLabel); 
+  
+        
+
+        const lineGenerator = d3.line()
+                                  .x(d => xScale(xValue(d)))
+                                  .y(d => yScale(yValue(d)))
+                                  .curve(d3.curveBasis);
+        const lastYValue = d => 
+                    yValue(d.values[d.values.length - 1]);
+
+        const nested = d3.nest()
+                        .key(colorValue)
+                        .entries(data)
+                        .sort((a, b) =>
+                        d3.descending(lastYValue(a), lastYValue(b))
+                    );
+        console.log(nested)
+
+
+        colorScale.domain(nested.map(d => d.key));
+    
+         g.selectAll('.line-path').data(nested)
+          .enter().append('path')
+            .attr('class', 'line-path')
+            .attr('d', d => lineGenerator(d.values))
+            .attr('stroke', d => colorScale(d.key));
+
+        g.append('text')
+            .attr('class', 'title')
+            .attr('y', -15)
+            .attr('x', -20)
+            .text(title);
+
     })
     .catch (function() {
         console.log("ERROR Reading CSV file")
     })
 }
-//init()
 
-//AverageCityMPG: "25"
-//AverageHighwayMPG: "35"
-//EngineCylinders: "4"
-//Fuel: "Gasoline"
-//Make: "Acura"
 
 </script>
 </body>
