@@ -328,19 +328,33 @@ async function ChartApril2019() {
         {
             note: {
                 label: "",
-                title: "Flights Trend is Nice and Normal"
+                title: "All Top-10 Flights' Trend is Nice and Normal"
             },
             connector: {
                 end: 'arrow', // 'arrow' also available
              },
-            x: 660,
+            x: 620,
             //y: yValue(lastYValue),
             y: 20,
             dy: 30,
             dx: 60
+        },
+        {
+            note: {
+                label: "",
+                title: "All 4 Weekends have consistant pattern with dip!"
+            },
+            connector: {
+                end: 'arrow', // 'dot' also available
+             },
+            x: 270,
+            //y: yValue(lastYValue),
+            y: 250,
+            dy: 30,
+            dx: 60
         }].map((d) => {
              //d.color = d => colorScale(d.key);
-             d.color = 'blue'
+             d.color = 'red'
              return d;
             });
         // Add annotation to the chart
@@ -510,7 +524,7 @@ async function ChartApril2020() {
             dx: 100
         }].map((d) => {
              //d.color = d => colorScale(d.key);
-             d.color = 'blue';
+             d.color = 'red';
              return d;
             });
         // Add annotation to the chart
