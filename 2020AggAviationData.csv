@@ -1,0 +1,1561 @@
+FL_DATE,ORIGIN_STATE,FLIGHT_COUNT
+2020-04-01,Alabama,100
+2020-04-01,Alaska,59
+2020-04-01,Arizona,582
+2020-04-01,Arkansas,76
+2020-04-01,California,1848
+2020-04-01,Colorado,661
+2020-04-01,Connecticut,72
+2020-04-01,Florida,1579
+2020-04-01,Georgia,823
+2020-04-01,Hawaii,161
+2020-04-01,Idaho,61
+2020-04-01,Illinois,1153
+2020-04-01,Indiana,188
+2020-04-01,Iowa,80
+2020-04-01,Kansas,43
+2020-04-01,Kentucky,206
+2020-04-01,Louisiana,201
+2020-04-01,Maine,40
+2020-04-01,Maryland,281
+2020-04-01,Massachusetts,335
+2020-04-01,Michigan,505
+2020-04-01,Minnesota,386
+2020-04-01,Mississippi,37
+2020-04-01,Missouri,357
+2020-04-01,Montana,59
+2020-04-01,Nebraska,79
+2020-04-01,Nevada,447
+2020-04-01,New Hampshire,29
+2020-04-01,New Jersey,244
+2020-04-01,New Mexico,77
+2020-04-01,New York,834
+2020-04-01,North Carolina,927
+2020-04-01,North Dakota,43
+2020-04-01,Ohio,288
+2020-04-01,Oklahoma,109
+2020-04-01,Oregon,196
+2020-04-01,Pennsylvania,590
+2020-04-01,Puerto Rico,74
+2020-04-01,Rhode Island,45
+2020-04-01,South Carolina,162
+2020-04-01,South Dakota,37
+2020-04-01,Tennessee,345
+2020-04-01,Texas,1901
+2020-04-01,U.S. Pacific Trust Territories and Possessions,1
+2020-04-01,U.S. Virgin Islands,12
+2020-04-01,Utah,288
+2020-04-01,Vermont,20
+2020-04-01,Virginia,702
+2020-04-01,Washington,384
+2020-04-01,West Virginia,20
+2020-04-01,Wisconsin,168
+2020-04-01,Wyoming,16
+2020-04-02,Alabama,99
+2020-04-02,Alaska,55
+2020-04-02,Arizona,594
+2020-04-02,Arkansas,82
+2020-04-02,California,1796
+2020-04-02,Colorado,677
+2020-04-02,Connecticut,67
+2020-04-02,Florida,1592
+2020-04-02,Georgia,719
+2020-04-02,Hawaii,168
+2020-04-02,Idaho,57
+2020-04-02,Illinois,1143
+2020-04-02,Indiana,167
+2020-04-02,Iowa,72
+2020-04-02,Kansas,42
+2020-04-02,Kentucky,190
+2020-04-02,Louisiana,192
+2020-04-02,Maine,43
+2020-04-02,Maryland,271
+2020-04-02,Massachusetts,312
+2020-04-02,Michigan,432
+2020-04-02,Minnesota,294
+2020-04-02,Mississippi,35
+2020-04-02,Missouri,348
+2020-04-02,Montana,53
+2020-04-02,Nebraska,71
+2020-04-02,Nevada,479
+2020-04-02,New Hampshire,26
+2020-04-02,New Jersey,241
+2020-04-02,New Mexico,77
+2020-04-02,New York,750
+2020-04-02,North Carolina,927
+2020-04-02,North Dakota,48
+2020-04-02,Ohio,274
+2020-04-02,Oklahoma,104
+2020-04-02,Oregon,196
+2020-04-02,Pennsylvania,588
+2020-04-02,Puerto Rico,67
+2020-04-02,Rhode Island,43
+2020-04-02,South Carolina,167
+2020-04-02,South Dakota,36
+2020-04-02,Tennessee,343
+2020-04-02,Texas,1941
+2020-04-02,U.S. Pacific Trust Territories and Possessions,4
+2020-04-02,U.S. Virgin Islands,10
+2020-04-02,Utah,254
+2020-04-02,Vermont,20
+2020-04-02,Virginia,672
+2020-04-02,Washington,384
+2020-04-02,West Virginia,20
+2020-04-02,Wisconsin,158
+2020-04-02,Wyoming,15
+2020-04-03,Alabama,100
+2020-04-03,Alaska,55
+2020-04-03,Arizona,589
+2020-04-03,Arkansas,77
+2020-04-03,California,1791
+2020-04-03,Colorado,634
+2020-04-03,Connecticut,69
+2020-04-03,Florida,1546
+2020-04-03,Georgia,711
+2020-04-03,Hawaii,174
+2020-04-03,Idaho,57
+2020-04-03,Illinois,1136
+2020-04-03,Indiana,165
+2020-04-03,Iowa,71
+2020-04-03,Kansas,41
+2020-04-03,Kentucky,185
+2020-04-03,Louisiana,195
+2020-04-03,Maine,43
+2020-04-03,Maryland,270
+2020-04-03,Massachusetts,313
+2020-04-03,Michigan,440
+2020-04-03,Minnesota,299
+2020-04-03,Mississippi,35
+2020-04-03,Missouri,347
+2020-04-03,Montana,51
+2020-04-03,Nebraska,72
+2020-04-03,Nevada,482
+2020-04-03,New Hampshire,28
+2020-04-03,New Jersey,237
+2020-04-03,New Mexico,78
+2020-04-03,New York,746
+2020-04-03,North Carolina,928
+2020-04-03,North Dakota,43
+2020-04-03,Ohio,272
+2020-04-03,Oklahoma,105
+2020-04-03,Oregon,196
+2020-04-03,Pennsylvania,587
+2020-04-03,Puerto Rico,62
+2020-04-03,Rhode Island,41
+2020-04-03,South Carolina,165
+2020-04-03,South Dakota,34
+2020-04-03,Tennessee,341
+2020-04-03,Texas,1942
+2020-04-03,U.S. Pacific Trust Territories and Possessions,1
+2020-04-03,U.S. Virgin Islands,7
+2020-04-03,Utah,252
+2020-04-03,Vermont,20
+2020-04-03,Virginia,668
+2020-04-03,Washington,384
+2020-04-03,West Virginia,20
+2020-04-03,Wisconsin,153
+2020-04-03,Wyoming,15
+2020-04-04,Alabama,79
+2020-04-04,Alaska,41
+2020-04-04,Arizona,563
+2020-04-04,Arkansas,52
+2020-04-04,California,1403
+2020-04-04,Colorado,554
+2020-04-04,Connecticut,63
+2020-04-04,Florida,1508
+2020-04-04,Georgia,569
+2020-04-04,Hawaii,202
+2020-04-04,Idaho,48
+2020-04-04,Illinois,946
+2020-04-04,Indiana,160
+2020-04-04,Iowa,60
+2020-04-04,Kansas,31
+2020-04-04,Kentucky,148
+2020-04-04,Louisiana,153
+2020-04-04,Maine,41
+2020-04-04,Maryland,210
+2020-04-04,Massachusetts,189
+2020-04-04,Michigan,379
+2020-04-04,Minnesota,259
+2020-04-04,Mississippi,26
+2020-04-04,Missouri,278
+2020-04-04,Montana,47
+2020-04-04,Nebraska,59
+2020-04-04,Nevada,368
+2020-04-04,New Hampshire,28
+2020-04-04,New Jersey,204
+2020-04-04,New Mexico,64
+2020-04-04,New York,526
+2020-04-04,North Carolina,808
+2020-04-04,North Dakota,39
+2020-04-04,Ohio,225
+2020-04-04,Oklahoma,78
+2020-04-04,Oregon,158
+2020-04-04,Pennsylvania,485
+2020-04-04,Puerto Rico,40
+2020-04-04,Rhode Island,34
+2020-04-04,South Carolina,145
+2020-04-04,South Dakota,30
+2020-04-04,Tennessee,272
+2020-04-04,Texas,1603
+2020-04-04,U.S. Pacific Trust Territories and Possessions,1
+2020-04-04,U.S. Virgin Islands,8
+2020-04-04,Utah,217
+2020-04-04,Vermont,16
+2020-04-04,Virginia,525
+2020-04-04,Washington,321
+2020-04-04,West Virginia,18
+2020-04-04,Wisconsin,140
+2020-04-04,Wyoming,14
+2020-04-05,Alabama,97
+2020-04-05,Alaska,39
+2020-04-05,Arizona,597
+2020-04-05,Arkansas,74
+2020-04-05,California,1620
+2020-04-05,Colorado,622
+2020-04-05,Connecticut,65
+2020-04-05,Florida,1482
+2020-04-05,Georgia,674
+2020-04-05,Hawaii,193
+2020-04-05,Idaho,56
+2020-04-05,Illinois,1016
+2020-04-05,Indiana,169
+2020-04-05,Iowa,67
+2020-04-05,Kansas,39
+2020-04-05,Kentucky,174
+2020-04-05,Louisiana,192
+2020-04-05,Maine,43
+2020-04-05,Maryland,240
+2020-04-05,Massachusetts,225
+2020-04-05,Michigan,411
+2020-04-05,Minnesota,278
+2020-04-05,Mississippi,33
+2020-04-05,Missouri,335
+2020-04-05,Montana,52
+2020-04-05,Nebraska,70
+2020-04-05,Nevada,447
+2020-04-05,New Hampshire,23
+2020-04-05,New Jersey,211
+2020-04-05,New Mexico,73
+2020-04-05,New York,627
+2020-04-05,North Carolina,884
+2020-04-05,North Dakota,44
+2020-04-05,Ohio,246
+2020-04-05,Oklahoma,94
+2020-04-05,Oregon,184
+2020-04-05,Pennsylvania,553
+2020-04-05,Puerto Rico,43
+2020-04-05,Rhode Island,39
+2020-04-05,South Carolina,156
+2020-04-05,South Dakota,34
+2020-04-05,Tennessee,346
+2020-04-05,Texas,1844
+2020-04-05,U.S. Pacific Trust Territories and Possessions,3
+2020-04-05,U.S. Virgin Islands,9
+2020-04-05,Utah,246
+2020-04-05,Vermont,19
+2020-04-05,Virginia,623
+2020-04-05,Washington,356
+2020-04-05,West Virginia,20
+2020-04-05,Wisconsin,146
+2020-04-05,Wyoming,15
+2020-04-06,Alabama,89
+2020-04-06,Alaska,42
+2020-04-06,Arizona,548
+2020-04-06,Arkansas,78
+2020-04-06,California,1681
+2020-04-06,Colorado,636
+2020-04-06,Connecticut,63
+2020-04-06,Florida,1371
+2020-04-06,Georgia,667
+2020-04-06,Hawaii,177
+2020-04-06,Idaho,57
+2020-04-06,Illinois,1117
+2020-04-06,Indiana,161
+2020-04-06,Iowa,70
+2020-04-06,Kansas,41
+2020-04-06,Kentucky,178
+2020-04-06,Louisiana,188
+2020-04-06,Maine,40
+2020-04-06,Maryland,266
+2020-04-06,Massachusetts,246
+2020-04-06,Michigan,420
+2020-04-06,Minnesota,286
+2020-04-06,Mississippi,33
+2020-04-06,Missouri,346
+2020-04-06,Montana,52
+2020-04-06,Nebraska,70
+2020-04-06,Nevada,434
+2020-04-06,New Hampshire,26
+2020-04-06,New Jersey,216
+2020-04-06,New Mexico,76
+2020-04-06,New York,659
+2020-04-06,North Carolina,888
+2020-04-06,North Dakota,45
+2020-04-06,Ohio,250
+2020-04-06,Oklahoma,105
+2020-04-06,Oregon,178
+2020-04-06,Pennsylvania,548
+2020-04-06,Puerto Rico,38
+2020-04-06,Rhode Island,41
+2020-04-06,South Carolina,152
+2020-04-06,South Dakota,34
+2020-04-06,Tennessee,332
+2020-04-06,Texas,1888
+2020-04-06,U.S. Pacific Trust Territories and Possessions,1
+2020-04-06,U.S. Virgin Islands,6
+2020-04-06,Utah,242
+2020-04-06,Vermont,19
+2020-04-06,Virginia,599
+2020-04-06,Washington,329
+2020-04-06,West Virginia,19
+2020-04-06,Wisconsin,151
+2020-04-06,Wyoming,15
+2020-04-07,Alabama,75
+2020-04-07,Alaska,51
+2020-04-07,Arizona,416
+2020-04-07,Arkansas,57
+2020-04-07,California,1494
+2020-04-07,Colorado,573
+2020-04-07,Connecticut,61
+2020-04-07,Florida,1124
+2020-04-07,Georgia,640
+2020-04-07,Hawaii,110
+2020-04-07,Idaho,56
+2020-04-07,Illinois,884
+2020-04-07,Indiana,132
+2020-04-07,Iowa,49
+2020-04-07,Kansas,29
+2020-04-07,Kentucky,145
+2020-04-07,Louisiana,161
+2020-04-07,Maine,34
+2020-04-07,Maryland,261
+2020-04-07,Massachusetts,196
+2020-04-07,Michigan,380
+2020-04-07,Minnesota,273
+2020-04-07,Mississippi,28
+2020-04-07,Missouri,309
+2020-04-07,Montana,48
+2020-04-07,Nebraska,59
+2020-04-07,Nevada,363
+2020-04-07,New Hampshire,21
+2020-04-07,New Jersey,207
+2020-04-07,New Mexico,66
+2020-04-07,New York,518
+2020-04-07,North Carolina,738
+2020-04-07,North Dakota,36
+2020-04-07,Ohio,207
+2020-04-07,Oklahoma,93
+2020-04-07,Oregon,177
+2020-04-07,Pennsylvania,460
+2020-04-07,Puerto Rico,36
+2020-04-07,Rhode Island,35
+2020-04-07,South Carolina,135
+2020-04-07,South Dakota,27
+2020-04-07,Tennessee,278
+2020-04-07,Texas,1661
+2020-04-07,U.S. Pacific Trust Territories and Possessions,1
+2020-04-07,U.S. Virgin Islands,8
+2020-04-07,Utah,215
+2020-04-07,Vermont,18
+2020-04-07,Virginia,493
+2020-04-07,Washington,356
+2020-04-07,West Virginia,14
+2020-04-07,Wisconsin,134
+2020-04-07,Wyoming,14
+2020-04-08,Alabama,69
+2020-04-08,Alaska,51
+2020-04-08,Arizona,410
+2020-04-08,Arkansas,50
+2020-04-08,California,1348
+2020-04-08,Colorado,506
+2020-04-08,Connecticut,47
+2020-04-08,Florida,998
+2020-04-08,Georgia,570
+2020-04-08,Hawaii,101
+2020-04-08,Idaho,49
+2020-04-08,Illinois,755
+2020-04-08,Indiana,117
+2020-04-08,Iowa,49
+2020-04-08,Kansas,32
+2020-04-08,Kentucky,128
+2020-04-08,Louisiana,139
+2020-04-08,Maine,35
+2020-04-08,Maryland,231
+2020-04-08,Massachusetts,162
+2020-04-08,Michigan,314
+2020-04-08,Minnesota,225
+2020-04-08,Mississippi,27
+2020-04-08,Missouri,292
+2020-04-08,Montana,45
+2020-04-08,Nebraska,59
+2020-04-08,Nevada,322
+2020-04-08,New Hampshire,23
+2020-04-08,New Jersey,107
+2020-04-08,New Mexico,59
+2020-04-08,New York,425
+2020-04-08,North Carolina,723
+2020-04-08,North Dakota,39
+2020-04-08,Ohio,168
+2020-04-08,Oklahoma,82
+2020-04-08,Oregon,166
+2020-04-08,Pennsylvania,436
+2020-04-08,Puerto Rico,31
+2020-04-08,Rhode Island,33
+2020-04-08,South Carolina,115
+2020-04-08,South Dakota,30
+2020-04-08,Tennessee,261
+2020-04-08,Texas,1470
+2020-04-08,U.S. Pacific Trust Territories and Possessions,1
+2020-04-08,U.S. Virgin Islands,5
+2020-04-08,Utah,195
+2020-04-08,Vermont,16
+2020-04-08,Virginia,443
+2020-04-08,Washington,327
+2020-04-08,West Virginia,14
+2020-04-08,Wisconsin,120
+2020-04-08,Wyoming,13
+2020-04-09,Alabama,71
+2020-04-09,Alaska,48
+2020-04-09,Arizona,414
+2020-04-09,Arkansas,60
+2020-04-09,California,1314
+2020-04-09,Colorado,526
+2020-04-09,Connecticut,48
+2020-04-09,Florida,1049
+2020-04-09,Georgia,572
+2020-04-09,Hawaii,97
+2020-04-09,Idaho,51
+2020-04-09,Illinois,794
+2020-04-09,Indiana,122
+2020-04-09,Iowa,56
+2020-04-09,Kansas,35
+2020-04-09,Kentucky,142
+2020-04-09,Louisiana,147
+2020-04-09,Maine,34
+2020-04-09,Maryland,231
+2020-04-09,Massachusetts,169
+2020-04-09,Michigan,322
+2020-04-09,Minnesota,226
+2020-04-09,Mississippi,27
+2020-04-09,Missouri,296
+2020-04-09,Montana,46
+2020-04-09,Nebraska,62
+2020-04-09,Nevada,341
+2020-04-09,New Hampshire,21
+2020-04-09,New Jersey,101
+2020-04-09,New Mexico,59
+2020-04-09,New York,439
+2020-04-09,North Carolina,739
+2020-04-09,North Dakota,39
+2020-04-09,Ohio,175
+2020-04-09,Oklahoma,89
+2020-04-09,Oregon,152
+2020-04-09,Pennsylvania,439
+2020-04-09,Puerto Rico,32
+2020-04-09,Rhode Island,37
+2020-04-09,South Carolina,120
+2020-04-09,South Dakota,32
+2020-04-09,Tennessee,272
+2020-04-09,Texas,1557
+2020-04-09,U.S. Pacific Trust Territories and Possessions,1
+2020-04-09,U.S. Virgin Islands,4
+2020-04-09,Utah,201
+2020-04-09,Vermont,16
+2020-04-09,Virginia,451
+2020-04-09,Washington,295
+2020-04-09,West Virginia,16
+2020-04-09,Wisconsin,123
+2020-04-09,Wyoming,13
+2020-04-10,Alabama,71
+2020-04-10,Alaska,43
+2020-04-10,Arizona,408
+2020-04-10,Arkansas,57
+2020-04-10,California,1299
+2020-04-10,Colorado,529
+2020-04-10,Connecticut,48
+2020-04-10,Florida,1055
+2020-04-10,Georgia,575
+2020-04-10,Hawaii,97
+2020-04-10,Idaho,43
+2020-04-10,Illinois,800
+2020-04-10,Indiana,124
+2020-04-10,Iowa,58
+2020-04-10,Kansas,33
+2020-04-10,Kentucky,144
+2020-04-10,Louisiana,148
+2020-04-10,Maine,35
+2020-04-10,Maryland,229
+2020-04-10,Massachusetts,169
+2020-04-10,Michigan,321
+2020-04-10,Minnesota,227
+2020-04-10,Mississippi,27
+2020-04-10,Missouri,292
+2020-04-10,Montana,38
+2020-04-10,Nebraska,60
+2020-04-10,Nevada,338
+2020-04-10,New Hampshire,23
+2020-04-10,New Jersey,107
+2020-04-10,New Mexico,57
+2020-04-10,New York,429
+2020-04-10,North Carolina,745
+2020-04-10,North Dakota,37
+2020-04-10,Ohio,175
+2020-04-10,Oklahoma,90
+2020-04-10,Oregon,116
+2020-04-10,Pennsylvania,442
+2020-04-10,Puerto Rico,34
+2020-04-10,Rhode Island,34
+2020-04-10,South Carolina,121
+2020-04-10,South Dakota,32
+2020-04-10,Tennessee,273
+2020-04-10,Texas,1548
+2020-04-10,U.S. Pacific Trust Territories and Possessions,1
+2020-04-10,U.S. Virgin Islands,4
+2020-04-10,Utah,197
+2020-04-10,Vermont,17
+2020-04-10,Virginia,443
+2020-04-10,Washington,264
+2020-04-10,West Virginia,15
+2020-04-10,Wisconsin,120
+2020-04-10,Wyoming,14
+2020-04-11,Alabama,61
+2020-04-11,Alaska,33
+2020-04-11,Arizona,399
+2020-04-11,Arkansas,47
+2020-04-11,California,1009
+2020-04-11,Colorado,474
+2020-04-11,Connecticut,46
+2020-04-11,Florida,1164
+2020-04-11,Georgia,477
+2020-04-11,Hawaii,98
+2020-04-11,Idaho,38
+2020-04-11,Illinois,690
+2020-04-11,Indiana,119
+2020-04-11,Iowa,44
+2020-04-11,Kansas,27
+2020-04-11,Kentucky,111
+2020-04-11,Louisiana,125
+2020-04-11,Maine,31
+2020-04-11,Maryland,180
+2020-04-11,Massachusetts,133
+2020-04-11,Michigan,271
+2020-04-11,Minnesota,203
+2020-04-11,Mississippi,22
+2020-04-11,Missouri,246
+2020-04-11,Montana,36
+2020-04-11,Nebraska,54
+2020-04-11,Nevada,282
+2020-04-11,New Hampshire,24
+2020-04-11,New Jersey,79
+2020-04-11,New Mexico,48
+2020-04-11,New York,349
+2020-04-11,North Carolina,647
+2020-04-11,North Dakota,33
+2020-04-11,Ohio,161
+2020-04-11,Oklahoma,71
+2020-04-11,Oregon,95
+2020-04-11,Pennsylvania,382
+2020-04-11,Puerto Rico,34
+2020-04-11,Rhode Island,32
+2020-04-11,South Carolina,112
+2020-04-11,South Dakota,25
+2020-04-11,Tennessee,226
+2020-04-11,Texas,1343
+2020-04-11,U.S. Pacific Trust Territories and Possessions,1
+2020-04-11,U.S. Virgin Islands,5
+2020-04-11,Utah,176
+2020-04-11,Vermont,13
+2020-04-11,Virginia,377
+2020-04-11,Washington,251
+2020-04-11,West Virginia,14
+2020-04-11,Wisconsin,120
+2020-04-11,Wyoming,13
+2020-04-12,Alabama,65
+2020-04-12,Alaska,34
+2020-04-12,Arizona,374
+2020-04-12,Arkansas,58
+2020-04-12,California,1089
+2020-04-12,Colorado,491
+2020-04-12,Connecticut,35
+2020-04-12,Florida,946
+2020-04-12,Georgia,525
+2020-04-12,Hawaii,97
+2020-04-12,Idaho,41
+2020-04-12,Illinois,713
+2020-04-12,Indiana,121
+2020-04-12,Iowa,52
+2020-04-12,Kansas,31
+2020-04-12,Kentucky,120
+2020-04-12,Louisiana,143
+2020-04-12,Maine,21
+2020-04-12,Maryland,197
+2020-04-12,Massachusetts,122
+2020-04-12,Michigan,300
+2020-04-12,Minnesota,200
+2020-04-12,Mississippi,23
+2020-04-12,Missouri,274
+2020-04-12,Montana,37
+2020-04-12,Nebraska,60
+2020-04-12,Nevada,327
+2020-04-12,New Hampshire,18
+2020-04-12,New Jersey,82
+2020-04-12,New Mexico,53
+2020-04-12,New York,313
+2020-04-12,North Carolina,560
+2020-04-12,North Dakota,38
+2020-04-12,Ohio,166
+2020-04-12,Oklahoma,84
+2020-04-12,Oregon,107
+2020-04-12,Pennsylvania,330
+2020-04-12,Puerto Rico,32
+2020-04-12,Rhode Island,29
+2020-04-12,South Carolina,109
+2020-04-12,South Dakota,29
+2020-04-12,Tennessee,266
+2020-04-12,Texas,1308
+2020-04-12,U.S. Pacific Trust Territories and Possessions,1
+2020-04-12,U.S. Virgin Islands,4
+2020-04-12,Utah,192
+2020-04-12,Vermont,11
+2020-04-12,Virginia,374
+2020-04-12,Washington,247
+2020-04-12,West Virginia,14
+2020-04-12,Wisconsin,113
+2020-04-12,Wyoming,13
+2020-04-13,Alabama,62
+2020-04-13,Alaska,45
+2020-04-13,Arizona,353
+2020-04-13,Arkansas,54
+2020-04-13,California,1194
+2020-04-13,Colorado,516
+2020-04-13,Connecticut,37
+2020-04-13,Florida,890
+2020-04-13,Georgia,541
+2020-04-13,Hawaii,97
+2020-04-13,Idaho,43
+2020-04-13,Illinois,750
+2020-04-13,Indiana,116
+2020-04-13,Iowa,53
+2020-04-13,Kansas,33
+2020-04-13,Kentucky,127
+2020-04-13,Louisiana,134
+2020-04-13,Maine,24
+2020-04-13,Maryland,225
+2020-04-13,Massachusetts,120
+2020-04-13,Michigan,313
+2020-04-13,Minnesota,215
+2020-04-13,Mississippi,25
+2020-04-13,Missouri,275
+2020-04-13,Montana,38
+2020-04-13,Nebraska,60
+2020-04-13,Nevada,323
+2020-04-13,New Hampshire,23
+2020-04-13,New Jersey,82
+2020-04-13,New Mexico,54
+2020-04-13,New York,292
+2020-04-13,North Carolina,586
+2020-04-13,North Dakota,36
+2020-04-13,Ohio,163
+2020-04-13,Oklahoma,87
+2020-04-13,Oregon,114
+2020-04-13,Pennsylvania,349
+2020-04-13,Puerto Rico,30
+2020-04-13,Rhode Island,32
+2020-04-13,South Carolina,100
+2020-04-13,South Dakota,27
+2020-04-13,Tennessee,241
+2020-04-13,Texas,1324
+2020-04-13,U.S. Pacific Trust Territories and Possessions,1
+2020-04-13,U.S. Virgin Islands,3
+2020-04-13,Utah,192
+2020-04-13,Vermont,13
+2020-04-13,Virginia,378
+2020-04-13,Washington,260
+2020-04-13,West Virginia,14
+2020-04-13,Wisconsin,118
+2020-04-13,Wyoming,14
+2020-04-14,Alabama,57
+2020-04-14,Alaska,43
+2020-04-14,Arizona,271
+2020-04-14,Arkansas,49
+2020-04-14,California,873
+2020-04-14,Colorado,433
+2020-04-14,Connecticut,32
+2020-04-14,Florida,661
+2020-04-14,Georgia,509
+2020-04-14,Hawaii,71
+2020-04-14,Idaho,39
+2020-04-14,Illinois,648
+2020-04-14,Indiana,89
+2020-04-14,Iowa,43
+2020-04-14,Kansas,27
+2020-04-14,Kentucky,109
+2020-04-14,Louisiana,123
+2020-04-14,Maine,24
+2020-04-14,Maryland,184
+2020-04-14,Massachusetts,116
+2020-04-14,Michigan,284
+2020-04-14,Minnesota,207
+2020-04-14,Mississippi,23
+2020-04-14,Missouri,218
+2020-04-14,Montana,35
+2020-04-14,Nebraska,46
+2020-04-14,Nevada,211
+2020-04-14,New Hampshire,24
+2020-04-14,New Jersey,75
+2020-04-14,New Mexico,49
+2020-04-14,New York,278
+2020-04-14,North Carolina,544
+2020-04-14,North Dakota,30
+2020-04-14,Ohio,129
+2020-04-14,Oklahoma,71
+2020-04-14,Oregon,100
+2020-04-14,Pennsylvania,325
+2020-04-14,Puerto Rico,17
+2020-04-14,Rhode Island,30
+2020-04-14,South Carolina,92
+2020-04-14,South Dakota,23
+2020-04-14,Tennessee,192
+2020-04-14,Texas,1143
+2020-04-14,U.S. Pacific Trust Territories and Possessions,1
+2020-04-14,U.S. Virgin Islands,3
+2020-04-14,Utah,175
+2020-04-14,Vermont,11
+2020-04-14,Virginia,351
+2020-04-14,Washington,232
+2020-04-14,West Virginia,11
+2020-04-14,Wisconsin,104
+2020-04-14,Wyoming,12
+2020-04-15,Alabama,56
+2020-04-15,Alaska,47
+2020-04-15,Arizona,277
+2020-04-15,Arkansas,48
+2020-04-15,California,846
+2020-04-15,Colorado,441
+2020-04-15,Connecticut,35
+2020-04-15,Florida,636
+2020-04-15,Georgia,392
+2020-04-15,Hawaii,71
+2020-04-15,Idaho,36
+2020-04-15,Illinois,665
+2020-04-15,Indiana,92
+2020-04-15,Iowa,46
+2020-04-15,Kansas,31
+2020-04-15,Kentucky,100
+2020-04-15,Louisiana,117
+2020-04-15,Maine,25
+2020-04-15,Maryland,182
+2020-04-15,Massachusetts,105
+2020-04-15,Michigan,265
+2020-04-15,Minnesota,184
+2020-04-15,Mississippi,23
+2020-04-15,Missouri,214
+2020-04-15,Montana,34
+2020-04-15,Nebraska,51
+2020-04-15,Nevada,215
+2020-04-15,New Hampshire,24
+2020-04-15,New Jersey,72
+2020-04-15,New Mexico,44
+2020-04-15,New York,254
+2020-04-15,North Carolina,540
+2020-04-15,North Dakota,32
+2020-04-15,Ohio,132
+2020-04-15,Oklahoma,71
+2020-04-15,Oregon,93
+2020-04-15,Pennsylvania,332
+2020-04-15,Puerto Rico,18
+2020-04-15,Rhode Island,27
+2020-04-15,South Carolina,84
+2020-04-15,South Dakota,27
+2020-04-15,Tennessee,189
+2020-04-15,Texas,1126
+2020-04-15,U.S. Pacific Trust Territories and Possessions,1
+2020-04-15,U.S. Virgin Islands,3
+2020-04-15,Utah,152
+2020-04-15,Vermont,12
+2020-04-15,Virginia,342
+2020-04-15,Washington,217
+2020-04-15,West Virginia,11
+2020-04-15,Wisconsin,102
+2020-04-15,Wyoming,13
+2020-04-16,Alabama,55
+2020-04-16,Alaska,46
+2020-04-16,Arizona,280
+2020-04-16,Arkansas,51
+2020-04-16,California,868
+2020-04-16,Colorado,457
+2020-04-16,Connecticut,36
+2020-04-16,Florida,697
+2020-04-16,Georgia,394
+2020-04-16,Hawaii,71
+2020-04-16,Idaho,41
+2020-04-16,Illinois,669
+2020-04-16,Indiana,94
+2020-04-16,Iowa,50
+2020-04-16,Kansas,31
+2020-04-16,Kentucky,117
+2020-04-16,Louisiana,122
+2020-04-16,Maine,24
+2020-04-16,Maryland,181
+2020-04-16,Massachusetts,122
+2020-04-16,Michigan,267
+2020-04-16,Minnesota,184
+2020-04-16,Mississippi,24
+2020-04-16,Missouri,221
+2020-04-16,Montana,36
+2020-04-16,Nebraska,50
+2020-04-16,Nevada,246
+2020-04-16,New Hampshire,23
+2020-04-16,New Jersey,79
+2020-04-16,New Mexico,45
+2020-04-16,New York,284
+2020-04-16,North Carolina,570
+2020-04-16,North Dakota,36
+2020-04-16,Ohio,138
+2020-04-16,Oklahoma,71
+2020-04-16,Oregon,98
+2020-04-16,Pennsylvania,335
+2020-04-16,Puerto Rico,18
+2020-04-16,Rhode Island,29
+2020-04-16,South Carolina,90
+2020-04-16,South Dakota,30
+2020-04-16,Tennessee,204
+2020-04-16,Texas,1166
+2020-04-16,U.S. Pacific Trust Territories and Possessions,1
+2020-04-16,U.S. Virgin Islands,3
+2020-04-16,Utah,160
+2020-04-16,Vermont,13
+2020-04-16,Virginia,357
+2020-04-16,Washington,235
+2020-04-16,West Virginia,15
+2020-04-16,Wisconsin,108
+2020-04-16,Wyoming,12
+2020-04-17,Alabama,52
+2020-04-17,Alaska,43
+2020-04-17,Arizona,280
+2020-04-17,Arkansas,49
+2020-04-17,California,856
+2020-04-17,Colorado,455
+2020-04-17,Connecticut,35
+2020-04-17,Florida,724
+2020-04-17,Georgia,394
+2020-04-17,Hawaii,71
+2020-04-17,Idaho,38
+2020-04-17,Illinois,652
+2020-04-17,Indiana,98
+2020-04-17,Iowa,48
+2020-04-17,Kansas,29
+2020-04-17,Kentucky,114
+2020-04-17,Louisiana,124
+2020-04-17,Maine,25
+2020-04-17,Maryland,180
+2020-04-17,Massachusetts,118
+2020-04-17,Michigan,267
+2020-04-17,Minnesota,185
+2020-04-17,Mississippi,24
+2020-04-17,Missouri,216
+2020-04-17,Montana,36
+2020-04-17,Nebraska,50
+2020-04-17,Nevada,251
+2020-04-17,New Hampshire,23
+2020-04-17,New Jersey,43
+2020-04-17,New Mexico,46
+2020-04-17,New York,276
+2020-04-17,North Carolina,582
+2020-04-17,North Dakota,33
+2020-04-17,Ohio,131
+2020-04-17,Oklahoma,71
+2020-04-17,Oregon,102
+2020-04-17,Pennsylvania,327
+2020-04-17,Puerto Rico,20
+2020-04-17,Rhode Island,29
+2020-04-17,South Carolina,86
+2020-04-17,South Dakota,24
+2020-04-17,Tennessee,197
+2020-04-17,Texas,1136
+2020-04-17,U.S. Pacific Trust Territories and Possessions,1
+2020-04-17,U.S. Virgin Islands,3
+2020-04-17,Utah,155
+2020-04-17,Vermont,13
+2020-04-17,Virginia,342
+2020-04-17,Washington,221
+2020-04-17,West Virginia,14
+2020-04-17,Wisconsin,107
+2020-04-17,Wyoming,13
+2020-04-18,Alabama,46
+2020-04-18,Alaska,34
+2020-04-18,Arizona,257
+2020-04-18,Arkansas,41
+2020-04-18,California,683
+2020-04-18,Colorado,375
+2020-04-18,Connecticut,34
+2020-04-18,Florida,689
+2020-04-18,Georgia,329
+2020-04-18,Hawaii,72
+2020-04-18,Idaho,33
+2020-04-18,Illinois,569
+2020-04-18,Indiana,77
+2020-04-18,Iowa,33
+2020-04-18,Kansas,21
+2020-04-18,Kentucky,93
+2020-04-18,Louisiana,100
+2020-04-18,Maine,23
+2020-04-18,Maryland,144
+2020-04-18,Massachusetts,83
+2020-04-18,Michigan,226
+2020-04-18,Minnesota,156
+2020-04-18,Mississippi,20
+2020-04-18,Missouri,166
+2020-04-18,Montana,31
+2020-04-18,Nebraska,40
+2020-04-18,Nevada,189
+2020-04-18,New Hampshire,21
+2020-04-18,New Jersey,33
+2020-04-18,New Mexico,35
+2020-04-18,New York,240
+2020-04-18,North Carolina,509
+2020-04-18,North Dakota,28
+2020-04-18,Ohio,119
+2020-04-18,Oklahoma,56
+2020-04-18,Oregon,84
+2020-04-18,Pennsylvania,286
+2020-04-18,Puerto Rico,24
+2020-04-18,Rhode Island,30
+2020-04-18,South Carolina,81
+2020-04-18,South Dakota,18
+2020-04-18,Tennessee,154
+2020-04-18,Texas,948
+2020-04-18,U.S. Pacific Trust Territories and Possessions,1
+2020-04-18,U.S. Virgin Islands,4
+2020-04-18,Utah,144
+2020-04-18,Vermont,11
+2020-04-18,Virginia,289
+2020-04-18,Washington,214
+2020-04-18,West Virginia,12
+2020-04-18,Wisconsin,93
+2020-04-18,Wyoming,12
+2020-04-19,Alabama,57
+2020-04-19,Alaska,31
+2020-04-19,Arizona,273
+2020-04-19,Arkansas,45
+2020-04-19,California,778
+2020-04-19,Colorado,441
+2020-04-19,Connecticut,34
+2020-04-19,Florida,633
+2020-04-19,Georgia,367
+2020-04-19,Hawaii,71
+2020-04-19,Idaho,37
+2020-04-19,Illinois,637
+2020-04-19,Indiana,87
+2020-04-19,Iowa,43
+2020-04-19,Kansas,28
+2020-04-19,Kentucky,94
+2020-04-19,Louisiana,122
+2020-04-19,Maine,16
+2020-04-19,Maryland,161
+2020-04-19,Massachusetts,114
+2020-04-19,Michigan,239
+2020-04-19,Minnesota,171
+2020-04-19,Mississippi,23
+2020-04-19,Missouri,221
+2020-04-19,Montana,33
+2020-04-19,Nebraska,52
+2020-04-19,Nevada,218
+2020-04-19,New Hampshire,20
+2020-04-19,New Jersey,28
+2020-04-19,New Mexico,40
+2020-04-19,New York,208
+2020-04-19,North Carolina,553
+2020-04-19,North Dakota,31
+2020-04-19,Ohio,132
+2020-04-19,Oklahoma,69
+2020-04-19,Oregon,92
+2020-04-19,Pennsylvania,306
+2020-04-19,Puerto Rico,22
+2020-04-19,Rhode Island,27
+2020-04-19,South Carolina,79
+2020-04-19,South Dakota,26
+2020-04-19,Tennessee,198
+2020-04-19,Texas,1115
+2020-04-19,U.S. Pacific Trust Territories and Possessions,1
+2020-04-19,U.S. Virgin Islands,4
+2020-04-19,Utah,156
+2020-04-19,Vermont,11
+2020-04-19,Virginia,325
+2020-04-19,Washington,222
+2020-04-19,West Virginia,12
+2020-04-19,Wisconsin,92
+2020-04-19,Wyoming,13
+2020-04-20,Alabama,56
+2020-04-20,Alaska,45
+2020-04-20,Arizona,274
+2020-04-20,Arkansas,47
+2020-04-20,California,822
+2020-04-20,Colorado,459
+2020-04-20,Connecticut,34
+2020-04-20,Florida,591
+2020-04-20,Georgia,371
+2020-04-20,Hawaii,69
+2020-04-20,Idaho,38
+2020-04-20,Illinois,639
+2020-04-20,Indiana,83
+2020-04-20,Iowa,44
+2020-04-20,Kansas,27
+2020-04-20,Kentucky,92
+2020-04-20,Louisiana,115
+2020-04-20,Maine,21
+2020-04-20,Maryland,176
+2020-04-20,Massachusetts,105
+2020-04-20,Michigan,247
+2020-04-20,Minnesota,178
+2020-04-20,Mississippi,23
+2020-04-20,Missouri,210
+2020-04-20,Montana,32
+2020-04-20,Nebraska,48
+2020-04-20,Nevada,210
+2020-04-20,New Hampshire,23
+2020-04-20,New Jersey,30
+2020-04-20,New Mexico,47
+2020-04-20,New York,205
+2020-04-20,North Carolina,549
+2020-04-20,North Dakota,30
+2020-04-20,Ohio,117
+2020-04-20,Oklahoma,68
+2020-04-20,Oregon,97
+2020-04-20,Pennsylvania,308
+2020-04-20,Puerto Rico,19
+2020-04-20,Rhode Island,27
+2020-04-20,South Carolina,82
+2020-04-20,South Dakota,27
+2020-04-20,Tennessee,181
+2020-04-20,Texas,1117
+2020-04-20,U.S. Pacific Trust Territories and Possessions,1
+2020-04-20,U.S. Virgin Islands,3
+2020-04-20,Utah,155
+2020-04-20,Vermont,11
+2020-04-20,Virginia,324
+2020-04-20,Washington,234
+2020-04-20,West Virginia,13
+2020-04-20,Wisconsin,105
+2020-04-20,Wyoming,13
+2020-04-21,Alabama,53
+2020-04-21,Alaska,43
+2020-04-21,Arizona,263
+2020-04-21,Arkansas,45
+2020-04-21,California,810
+2020-04-21,Colorado,409
+2020-04-21,Connecticut,35
+2020-04-21,Florida,564
+2020-04-21,Georgia,368
+2020-04-21,Hawaii,71
+2020-04-21,Idaho,36
+2020-04-21,Illinois,612
+2020-04-21,Indiana,82
+2020-04-21,Iowa,38
+2020-04-21,Kansas,24
+2020-04-21,Kentucky,89
+2020-04-21,Louisiana,108
+2020-04-21,Maine,21
+2020-04-21,Maryland,178
+2020-04-21,Massachusetts,100
+2020-04-21,Michigan,236
+2020-04-21,Minnesota,178
+2020-04-21,Mississippi,23
+2020-04-21,Missouri,199
+2020-04-21,Montana,33
+2020-04-21,Nebraska,42
+2020-04-21,Nevada,206
+2020-04-21,New Hampshire,22
+2020-04-21,New Jersey,25
+2020-04-21,New Mexico,44
+2020-04-21,New York,198
+2020-04-21,North Carolina,533
+2020-04-21,North Dakota,29
+2020-04-21,Ohio,113
+2020-04-21,Oklahoma,66
+2020-04-21,Oregon,92
+2020-04-21,Pennsylvania,309
+2020-04-21,Puerto Rico,16
+2020-04-21,Rhode Island,28
+2020-04-21,South Carolina,83
+2020-04-21,South Dakota,21
+2020-04-21,Tennessee,176
+2020-04-21,Texas,1051
+2020-04-21,U.S. Pacific Trust Territories and Possessions,1
+2020-04-21,U.S. Virgin Islands,3
+2020-04-21,Utah,154
+2020-04-21,Vermont,10
+2020-04-21,Virginia,310
+2020-04-21,Washington,216
+2020-04-21,West Virginia,11
+2020-04-21,Wisconsin,98
+2020-04-21,Wyoming,11
+2020-04-22,Alabama,52
+2020-04-22,Alaska,47
+2020-04-22,Arizona,267
+2020-04-22,Arkansas,44
+2020-04-22,California,797
+2020-04-22,Colorado,413
+2020-04-22,Connecticut,32
+2020-04-22,Florida,574
+2020-04-22,Georgia,363
+2020-04-22,Hawaii,71
+2020-04-22,Idaho,35
+2020-04-22,Illinois,606
+2020-04-22,Indiana,85
+2020-04-22,Iowa,41
+2020-04-22,Kansas,27
+2020-04-22,Kentucky,91
+2020-04-22,Louisiana,112
+2020-04-22,Maine,23
+2020-04-22,Maryland,180
+2020-04-22,Massachusetts,90
+2020-04-22,Michigan,244
+2020-04-22,Minnesota,175
+2020-04-22,Mississippi,25
+2020-04-22,Missouri,209
+2020-04-22,Montana,32
+2020-04-22,Nebraska,47
+2020-04-22,Nevada,208
+2020-04-22,New Hampshire,23
+2020-04-22,New Jersey,26
+2020-04-22,New Mexico,43
+2020-04-22,New York,196
+2020-04-22,North Carolina,543
+2020-04-22,North Dakota,33
+2020-04-22,Ohio,119
+2020-04-22,Oklahoma,67
+2020-04-22,Oregon,89
+2020-04-22,Pennsylvania,315
+2020-04-22,Puerto Rico,18
+2020-04-22,Rhode Island,27
+2020-04-22,South Carolina,77
+2020-04-22,South Dakota,23
+2020-04-22,Tennessee,175
+2020-04-22,Texas,1058
+2020-04-22,U.S. Pacific Trust Territories and Possessions,1
+2020-04-22,U.S. Virgin Islands,3
+2020-04-22,Utah,155
+2020-04-22,Vermont,12
+2020-04-22,Virginia,302
+2020-04-22,Washington,219
+2020-04-22,West Virginia,13
+2020-04-22,Wisconsin,102
+2020-04-22,Wyoming,12
+2020-04-23,Alabama,53
+2020-04-23,Alaska,46
+2020-04-23,Arizona,281
+2020-04-23,Arkansas,47
+2020-04-23,California,824
+2020-04-23,Colorado,432
+2020-04-23,Connecticut,37
+2020-04-23,Florida,660
+2020-04-23,Georgia,363
+2020-04-23,Hawaii,70
+2020-04-23,Idaho,37
+2020-04-23,Illinois,617
+2020-04-23,Indiana,93
+2020-04-23,Iowa,46
+2020-04-23,Kansas,27
+2020-04-23,Kentucky,106
+2020-04-23,Louisiana,114
+2020-04-23,Maine,20
+2020-04-23,Maryland,180
+2020-04-23,Massachusetts,106
+2020-04-23,Michigan,246
+2020-04-23,Minnesota,177
+2020-04-23,Mississippi,23
+2020-04-23,Missouri,209
+2020-04-23,Montana,36
+2020-04-23,Nebraska,49
+2020-04-23,Nevada,237
+2020-04-23,New Hampshire,22
+2020-04-23,New Jersey,28
+2020-04-23,New Mexico,45
+2020-04-23,New York,220
+2020-04-23,North Carolina,552
+2020-04-23,North Dakota,35
+2020-04-23,Ohio,121
+2020-04-23,Oklahoma,66
+2020-04-23,Oregon,96
+2020-04-23,Pennsylvania,319
+2020-04-23,Puerto Rico,18
+2020-04-23,Rhode Island,28
+2020-04-23,South Carolina,77
+2020-04-23,South Dakota,28
+2020-04-23,Tennessee,196
+2020-04-23,Texas,1075
+2020-04-23,U.S. Pacific Trust Territories and Possessions,1
+2020-04-23,U.S. Virgin Islands,3
+2020-04-23,Utah,158
+2020-04-23,Vermont,11
+2020-04-23,Virginia,320
+2020-04-23,Washington,222
+2020-04-23,West Virginia,14
+2020-04-23,Wisconsin,102
+2020-04-23,Wyoming,12
+2020-04-24,Alabama,52
+2020-04-24,Alaska,43
+2020-04-24,Arizona,269
+2020-04-24,Arkansas,41
+2020-04-24,California,819
+2020-04-24,Colorado,442
+2020-04-24,Connecticut,36
+2020-04-24,Florida,607
+2020-04-24,Georgia,368
+2020-04-24,Hawaii,71
+2020-04-24,Idaho,35
+2020-04-24,Illinois,553
+2020-04-24,Indiana,82
+2020-04-24,Iowa,41
+2020-04-24,Kansas,23
+2020-04-24,Kentucky,85
+2020-04-24,Louisiana,109
+2020-04-24,Maine,20
+2020-04-24,Maryland,179
+2020-04-24,Massachusetts,110
+2020-04-24,Michigan,239
+2020-04-24,Minnesota,174
+2020-04-24,Mississippi,22
+2020-04-24,Missouri,202
+2020-04-24,Montana,30
+2020-04-24,Nebraska,47
+2020-04-24,Nevada,209
+2020-04-24,New Hampshire,25
+2020-04-24,New Jersey,30
+2020-04-24,New Mexico,43
+2020-04-24,New York,205
+2020-04-24,North Carolina,548
+2020-04-24,North Dakota,30
+2020-04-24,Ohio,110
+2020-04-24,Oklahoma,60
+2020-04-24,Oregon,95
+2020-04-24,Pennsylvania,308
+2020-04-24,Puerto Rico,19
+2020-04-24,Rhode Island,28
+2020-04-24,South Carolina,80
+2020-04-24,South Dakota,21
+2020-04-24,Tennessee,176
+2020-04-24,Texas,1005
+2020-04-24,U.S. Pacific Trust Territories and Possessions,1
+2020-04-24,U.S. Virgin Islands,3
+2020-04-24,Utah,154
+2020-04-24,Vermont,13
+2020-04-24,Virginia,315
+2020-04-24,Washington,219
+2020-04-24,West Virginia,13
+2020-04-24,Wisconsin,99
+2020-04-24,Wyoming,13
+2020-04-25,Alabama,48
+2020-04-25,Alaska,34
+2020-04-25,Arizona,246
+2020-04-25,Arkansas,39
+2020-04-25,California,658
+2020-04-25,Colorado,359
+2020-04-25,Connecticut,32
+2020-04-25,Florida,637
+2020-04-25,Georgia,309
+2020-04-25,Hawaii,71
+2020-04-25,Idaho,31
+2020-04-25,Illinois,520
+2020-04-25,Indiana,77
+2020-04-25,Iowa,34
+2020-04-25,Kansas,17
+2020-04-25,Kentucky,81
+2020-04-25,Louisiana,89
+2020-04-25,Maine,19
+2020-04-25,Maryland,144
+2020-04-25,Massachusetts,78
+2020-04-25,Michigan,210
+2020-04-25,Minnesota,156
+2020-04-25,Mississippi,20
+2020-04-25,Missouri,162
+2020-04-25,Montana,31
+2020-04-25,Nebraska,41
+2020-04-25,Nevada,185
+2020-04-25,New Hampshire,22
+2020-04-25,New Jersey,26
+2020-04-25,New Mexico,37
+2020-04-25,New York,182
+2020-04-25,North Carolina,494
+2020-04-25,North Dakota,24
+2020-04-25,Ohio,109
+2020-04-25,Oklahoma,56
+2020-04-25,Oregon,77
+2020-04-25,Pennsylvania,261
+2020-04-25,Puerto Rico,22
+2020-04-25,Rhode Island,29
+2020-04-25,South Carolina,84
+2020-04-25,South Dakota,20
+2020-04-25,Tennessee,152
+2020-04-25,Texas,902
+2020-04-25,U.S. Pacific Trust Territories and Possessions,1
+2020-04-25,U.S. Virgin Islands,4
+2020-04-25,Utah,141
+2020-04-25,Vermont,10
+2020-04-25,Virginia,266
+2020-04-25,Washington,201
+2020-04-25,West Virginia,12
+2020-04-25,Wisconsin,88
+2020-04-25,Wyoming,12
+2020-04-26,Alabama,56
+2020-04-26,Alaska,31
+2020-04-26,Arizona,271
+2020-04-26,Arkansas,37
+2020-04-26,California,763
+2020-04-26,Colorado,427
+2020-04-26,Connecticut,30
+2020-04-26,Florida,599
+2020-04-26,Georgia,355
+2020-04-26,Hawaii,71
+2020-04-26,Idaho,34
+2020-04-26,Illinois,550
+2020-04-26,Indiana,81
+2020-04-26,Iowa,40
+2020-04-26,Kansas,26
+2020-04-26,Kentucky,87
+2020-04-26,Louisiana,115
+2020-04-26,Maine,15
+2020-04-26,Maryland,157
+2020-04-26,Massachusetts,109
+2020-04-26,Michigan,229
+2020-04-26,Minnesota,162
+2020-04-26,Mississippi,19
+2020-04-26,Missouri,211
+2020-04-26,Montana,28
+2020-04-26,Nebraska,51
+2020-04-26,Nevada,212
+2020-04-26,New Hampshire,21
+2020-04-26,New Jersey,26
+2020-04-26,New Mexico,40
+2020-04-26,New York,196
+2020-04-26,North Carolina,553
+2020-04-26,North Dakota,31
+2020-04-26,Ohio,122
+2020-04-26,Oklahoma,62
+2020-04-26,Oregon,87
+2020-04-26,Pennsylvania,295
+2020-04-26,Puerto Rico,23
+2020-04-26,Rhode Island,29
+2020-04-26,South Carolina,79
+2020-04-26,South Dakota,23
+2020-04-26,Tennessee,200
+2020-04-26,Texas,976
+2020-04-26,U.S. Pacific Trust Territories and Possessions,1
+2020-04-26,U.S. Virgin Islands,4
+2020-04-26,Utah,153
+2020-04-26,Vermont,11
+2020-04-26,Virginia,304
+2020-04-26,Washington,209
+2020-04-26,West Virginia,13
+2020-04-26,Wisconsin,88
+2020-04-26,Wyoming,13
+2020-04-27,Alabama,52
+2020-04-27,Alaska,46
+2020-04-27,Arizona,275
+2020-04-27,Arkansas,39
+2020-04-27,California,814
+2020-04-27,Colorado,443
+2020-04-27,Connecticut,35
+2020-04-27,Florida,581
+2020-04-27,Georgia,362
+2020-04-27,Hawaii,70
+2020-04-27,Idaho,35
+2020-04-27,Illinois,559
+2020-04-27,Indiana,86
+2020-04-27,Iowa,45
+2020-04-27,Kansas,22
+2020-04-27,Kentucky,84
+2020-04-27,Louisiana,106
+2020-04-27,Maine,20
+2020-04-27,Maryland,175
+2020-04-27,Massachusetts,103
+2020-04-27,Michigan,237
+2020-04-27,Minnesota,173
+2020-04-27,Mississippi,23
+2020-04-27,Missouri,206
+2020-04-27,Montana,31
+2020-04-27,Nebraska,49
+2020-04-27,Nevada,206
+2020-04-27,New Hampshire,21
+2020-04-27,New Jersey,28
+2020-04-27,New Mexico,44
+2020-04-27,New York,201
+2020-04-27,North Carolina,534
+2020-04-27,North Dakota,30
+2020-04-27,Ohio,119
+2020-04-27,Oklahoma,64
+2020-04-27,Oregon,94
+2020-04-27,Pennsylvania,303
+2020-04-27,Puerto Rico,20
+2020-04-27,Rhode Island,27
+2020-04-27,South Carolina,78
+2020-04-27,South Dakota,22
+2020-04-27,Tennessee,184
+2020-04-27,Texas,1029
+2020-04-27,U.S. Pacific Trust Territories and Possessions,1
+2020-04-27,U.S. Virgin Islands,3
+2020-04-27,Utah,157
+2020-04-27,Vermont,11
+2020-04-27,Virginia,318
+2020-04-27,Washington,224
+2020-04-27,West Virginia,13
+2020-04-27,Wisconsin,101
+2020-04-27,Wyoming,13
+2020-04-28,Alabama,55
+2020-04-28,Alaska,44
+2020-04-28,Arizona,261
+2020-04-28,Arkansas,38
+2020-04-28,California,781
+2020-04-28,Colorado,405
+2020-04-28,Connecticut,29
+2020-04-28,Florida,560
+2020-04-28,Georgia,359
+2020-04-28,Hawaii,70
+2020-04-28,Idaho,36
+2020-04-28,Illinois,529
+2020-04-28,Indiana,74
+2020-04-28,Iowa,32
+2020-04-28,Kansas,20
+2020-04-28,Kentucky,83
+2020-04-28,Louisiana,102
+2020-04-28,Maine,20
+2020-04-28,Maryland,178
+2020-04-28,Massachusetts,98
+2020-04-28,Michigan,228
+2020-04-28,Minnesota,170
+2020-04-28,Mississippi,21
+2020-04-28,Missouri,199
+2020-04-28,Montana,31
+2020-04-28,Nebraska,43
+2020-04-28,Nevada,201
+2020-04-28,New Hampshire,22
+2020-04-28,New Jersey,23
+2020-04-28,New Mexico,43
+2020-04-28,New York,196
+2020-04-28,North Carolina,508
+2020-04-28,North Dakota,29
+2020-04-28,Ohio,110
+2020-04-28,Oklahoma,60
+2020-04-28,Oregon,90
+2020-04-28,Pennsylvania,296
+2020-04-28,Puerto Rico,19
+2020-04-28,Rhode Island,28
+2020-04-28,South Carolina,80
+2020-04-28,South Dakota,19
+2020-04-28,Tennessee,177
+2020-04-28,Texas,987
+2020-04-28,U.S. Pacific Trust Territories and Possessions,1
+2020-04-28,U.S. Virgin Islands,3
+2020-04-28,Utah,150
+2020-04-28,Vermont,12
+2020-04-28,Virginia,304
+2020-04-28,Washington,212
+2020-04-28,West Virginia,11
+2020-04-28,Wisconsin,92
+2020-04-28,Wyoming,12
+2020-04-29,Alabama,51
+2020-04-29,Alaska,47
+2020-04-29,Arizona,274
+2020-04-29,Arkansas,36
+2020-04-29,California,782
+2020-04-29,Colorado,412
+2020-04-29,Connecticut,35
+2020-04-29,Florida,577
+2020-04-29,Georgia,353
+2020-04-29,Hawaii,71
+2020-04-29,Idaho,34
+2020-04-29,Illinois,537
+2020-04-29,Indiana,75
+2020-04-29,Iowa,32
+2020-04-29,Kansas,21
+2020-04-29,Kentucky,78
+2020-04-29,Louisiana,100
+2020-04-29,Maine,19
+2020-04-29,Maryland,181
+2020-04-29,Massachusetts,92
+2020-04-29,Michigan,233
+2020-04-29,Minnesota,166
+2020-04-29,Mississippi,21
+2020-04-29,Missouri,198
+2020-04-29,Montana,32
+2020-04-29,Nebraska,41
+2020-04-29,Nevada,205
+2020-04-29,New Hampshire,22
+2020-04-29,New Jersey,28
+2020-04-29,New Mexico,43
+2020-04-29,New York,191
+2020-04-29,North Carolina,479
+2020-04-29,North Dakota,30
+2020-04-29,Ohio,103
+2020-04-29,Oklahoma,56
+2020-04-29,Oregon,84
+2020-04-29,Pennsylvania,300
+2020-04-29,Puerto Rico,22
+2020-04-29,Rhode Island,25
+2020-04-29,South Carolina,76
+2020-04-29,South Dakota,25
+2020-04-29,Tennessee,179
+2020-04-29,Texas,983
+2020-04-29,U.S. Pacific Trust Territories and Possessions,1
+2020-04-29,U.S. Virgin Islands,3
+2020-04-29,Utah,152
+2020-04-29,Vermont,11
+2020-04-29,Virginia,292
+2020-04-29,Washington,197
+2020-04-29,West Virginia,11
+2020-04-29,Wisconsin,94
+2020-04-29,Wyoming,13
+2020-04-30,Alabama,55
+2020-04-30,Alaska,46
+2020-04-30,Arizona,275
+2020-04-30,Arkansas,39
+2020-04-30,California,799
+2020-04-30,Colorado,428
+2020-04-30,Connecticut,37
+2020-04-30,Florida,653
+2020-04-30,Georgia,355
+2020-04-30,Hawaii,70
+2020-04-30,Idaho,38
+2020-04-30,Illinois,551
+2020-04-30,Indiana,86
+2020-04-30,Iowa,37
+2020-04-30,Kansas,26
+2020-04-30,Kentucky,95
+2020-04-30,Louisiana,108
+2020-04-30,Maine,17
+2020-04-30,Maryland,181
+2020-04-30,Massachusetts,114
+2020-04-30,Michigan,239
+2020-04-30,Minnesota,170
+2020-04-30,Mississippi,21
+2020-04-30,Missouri,200
+2020-04-30,Montana,34
+2020-04-30,Nebraska,46
+2020-04-30,Nevada,233
+2020-04-30,New Hampshire,20
+2020-04-30,New Jersey,31
+2020-04-30,New Mexico,46
+2020-04-30,New York,215
+2020-04-30,North Carolina,481
+2020-04-30,North Dakota,34
+2020-04-30,Ohio,108
+2020-04-30,Oklahoma,59
+2020-04-30,Oregon,92
+2020-04-30,Pennsylvania,309
+2020-04-30,Puerto Rico,23
+2020-04-30,Rhode Island,28
+2020-04-30,South Carolina,75
+2020-04-30,South Dakota,27
+2020-04-30,Tennessee,189
+2020-04-30,Texas,1017
+2020-04-30,U.S. Pacific Trust Territories and Possessions,1
+2020-04-30,U.S. Virgin Islands,3
+2020-04-30,Utah,157
+2020-04-30,Vermont,12
+2020-04-30,Virginia,301
+2020-04-30,Washington,215
+2020-04-30,West Virginia,15
+2020-04-30,Wisconsin,95
+2020-04-30,Wyoming,12
