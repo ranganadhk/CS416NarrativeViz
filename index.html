@@ -777,48 +777,6 @@ function updateNested_data(new_value) {
         .text(title);
 
 
-
-    // Features of the annotation
-    const annotations = [
-    {
-        note: {
-            label: "",
-            title: "Flights Trend is Nice and Normal"
-        },
-        connector: {
-            end: 'arrow', // 'arrow' also available
-         },
-        x: 660,
-        //y: yValue(lastYValue),
-        y: 20,
-        dy: 30,
-        dx: 60
-    }].map((d) => {
-         //d.color = d => colorScale(d.key);
-         d.color = 'blue'
-         return d;
-        });
-    // Add annotation to the chart
-    const makeAnnotations = d3.annotation()
-                              .type(d3.annotationLabel)
-                              .annotations(annotations);
-
-    g.selectAll('.annotation-group')
- //   .select("#Arpil2019Chart")
-    .data([null])
-    .join(
-    (enter) =>
-      enter
-        .append('g')
-        .attr('class', 'annotation-group')
-        .call((enter) => enter.call(makeAnnotations)),
-         (update) =>
-      update.call((update) =>
-        update.call(makeAnnotations)
-      ),
-      (exit) => exit.remove()
-    );
-
 })
 // .catch (function() {
  //   console.log("ERROR Reading CSV file")
