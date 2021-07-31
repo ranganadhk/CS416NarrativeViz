@@ -2,7 +2,9 @@
 <meta charset="utf-8">
 <html>
 <title> Narrative Viz Assignment </title>
-<script src='https://d3js.org/d3.v5.min.js'></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script> </script>
+
 <style> 
     .bar {
       fill: steelblue;
@@ -44,23 +46,145 @@
     }
 
     .axis-label {
-        font-size: 4em;
+        font-size: 2em;
         fill: #8E8883;
     }
 
     .title {
-        font-size: 2.2em;
+        font-size: 1.7em;
+        padding:1.2em 20px 0em 20px;
+        margin: 0em;
         fill: #635F5D;
     }
+
+    .body_text {
+        font-size: 1em;
+        padding:1.2em 20px 0em 20px;
+        margin: 0em;
+        fill: #635F5D;
+    }
+    .annotation-group {
+        position: fixed;
+        font-size: 15px;
+        top: 290px;
+        left: 30px;
+        right: 0;
+        display: grid;
+        min-height: 100%;
+        grid-template-rows: 1fr 100px;
+        grid-template-columns: 150px 1fr;
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        opacity: 0.65;
+    }
 </style>
-<body onload='init()'>
-<svg width=960 height=500>
-</svg>
+<body onload='Introduction(), ChartApril2019() ,ChartApril2020(), ChartSummary(),ChartSummaryPromiseAll()'>
+
+<div id="Introduction">
+    <svg width=960 height=500>
+</div>
+<div id="Arpil2019Chart">
+    <svg width=960 height=500>
+</div>
+<div id="Arpil2020Chart">
+    <svg width=960 height=500>
+</div>
+<div id="ChartSummary">
+    <div id="Select-A-State"></div>
+    <div id="LineChart">
+        <svg width=960 height=500>
+    </div>
+</div>
+<div id="ChartSummaryPromiseAll">
+    <div id="Select-A-State"></div>
+    <div id="LineChart">
+        <svg width=960 height=500>
+    </div>
+</div>
+
 <script>
+async function Introduction() { 
+    await d3.csv("http://127.0.0.1:8887/2019AggAviationData.csv")  
+    svg = d3.select("#Introduction").select("svg")
+        const width = +svg.attr('width');
+        const height = +svg.attr('height');
+        const margin = { top: 60, right: 160, bottom: 88, left: 105 };
+    const title1 = "COVID-19 Impact on the number of Flights and Their trends in USA ";
+    const title2 = "Comparison between April-2019 and April-2020";
+    
+    const g = svg.append('g')
+                     .attr('transform', `translate(${margin.left},${margin.top})`);
 
-async function init() {
+    g.append('text')
+            .attr('class', 'title')
+            .attr('y', 15)
+            .attr('x', 40)
+            //.style('font-size',24)
+            //.style("text-anchor",'middle')
+            .text(title1);
+    
+    g.append('text')
+        .attr('class', 'title')
+        .attr('y', 50)
+        .attr('x', 140)
+        //.style('font-size',24)
+        //.style("text-anchor",'middle')
+        .text(title2);
 
-     await d3.csv("2019AggAviationData.csv")    
+    const body_text1 = "The COVID-19 impacted on the number of flights that flew globally.";
+    const body_text2 = "This visualization illustrates the number of flights flew and their trend in April-2019 and in April-2020 in USA";
+    const body_text3=  "and the flight trends are shown USA state-wise for April-2019 and April-2020. ";
+    const body_text4 = "        => Next 2 slides focus on top-10 states' flights and thier trends ";
+    const body_text5 = "        => Last slide focus on flights and thier trends for all USA states"
+    const body_text6 = "Note: Total number of flights include both departed and arrived flights for a given state";
+       
+        g.append('text')
+            .attr('class', 'body_text')
+            .attr('y', 100)
+            .attr('x', 60)
+            //.style('font-size',24)
+            //.style("text-anchor",'middle')
+            .text(body_text1);     
+        g.append('text')
+            .attr('class', 'body_text')
+            .attr('y', 120)
+            .attr('x', 60)
+            //.style('font-size',24)
+            //.style("text-anchor",'middle')
+            .text(body_text2);     
+        g.append('text')
+            .attr('class', 'body_text')
+            .attr('y', 140)
+            .attr('x', 60)
+            //.style('font-size',24)
+            //.style("text-anchor",'middle')
+            .text(body_text3);   
+        g.append('text')
+            .attr('class', 'body_text')
+            .attr('y', 170)
+            .attr('x', 90)
+            //.style('font-size',24)
+            //.style("text-anchor",'middle')
+            .text(body_text4);   
+        g.append('text')
+            .attr('class', 'body_text')
+            .attr('y', 190)
+            .attr('x', 90)
+            //.style('font-size',24)
+            //.style("text-anchor",'middle')
+            .text(body_text5);      
+
+        g.append('text')
+            .attr('class', 'body_text')
+            .attr('y', 220)
+            .attr('x', 60)
+            //.style('font-size',24)
+            //.style("text-anchor",'middle')
+            .text(body_text6);  
+
+}
+async function ChartApril2019() {
+
+     await d3.csv("http://127.0.0.1:8887/2019AggAviationData.csv")    
     .then(function(data) {
        const timeParser = d3.timeParse("%Y-%m-%d")
 
@@ -68,21 +192,21 @@ async function init() {
             d['FLIGHT_COUNT'] = +d['FLIGHT_COUNT']
             d['FL_DATE'] = new Date(d['FL_DATE'])
         })
-        svg = d3.select("body").select("svg")
+        svg = d3.select("#Arpil2019Chart").select("svg")
         const width = +svg.attr('width');
         const height = +svg.attr('height');
-
-        const title = 'Total Number of Flights Per State in April 2019';
+        const margin = { top: 60, right: 200, bottom: 88, left: 105 };
+        const title = "Number of Flights' Trend for top-10 States in April 2019";
 
         const xValue = d => d.FL_DATE;
         const xAxisLabel = 'Date';
         const yValue = d => d.FLIGHT_COUNT;
         const circleRadius = 6;
-        const yAxisLabel = 'Flights Count';
+        const yAxisLabel = 'Number of Flights';
 
         const colorValue = d => d.ORIGIN_STATE;
 
-        const margin = { top: 60, right: 160, bottom: 88, left: 105 };
+
         const innerWidth = width - margin.left - margin.right;
         const innerHeight = height - margin.top - margin.bottom;
         const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
@@ -90,7 +214,7 @@ async function init() {
                      .attr('transform', `translate(${margin.left},${margin.top})`);
 
 
-        console.log(data);
+        //console.log(data);
         var xScale = d3.scaleTime()
                       .domain(d3.extent(data,xValue))
                       .range([0,innerWidth])
@@ -105,7 +229,8 @@ async function init() {
         //console.log(xScale)
 
         var yScale = d3.scaleLinear()
-                       .domain(d3.extent(data,yValue))
+                       //.domain(d3.extent(data,yValue))
+                       .domain([0,2600])
                        .range([innerHeight,0])
                        //.padding(0.1)
             //yScale.domain(data.map(function(d) { return d.ORIGIN_STATE; }));
@@ -137,7 +262,7 @@ async function init() {
   
         xAxisG.append('text')
             .attr('class', 'axis-label')
-            .attr('y', 80)
+            .attr('y', 60)
             .attr('x', innerWidth / 2)
             .attr('fill', 'black')
             .text(xAxisLabel); 
@@ -151,13 +276,195 @@ async function init() {
         const lastYValue = d => 
                     yValue(d.values[d.values.length - 1]);
 
-        const nested = d3.nest()
-                        .key(colorValue)
-                        .entries(data)
-                        .sort((a, b) =>
-                        d3.descending(lastYValue(a), lastYValue(b))
-                    );
-        console.log(nested)
+        nested = d3.nest()
+                   .key(colorValue)
+                   .entries(data)
+                   .sort((a, b) =>
+                        d3.descending(lastYValue(a), lastYValue(b)));
+
+
+        nested  =   nested.slice(0,10);
+
+        console.log("flight_count",nested)
+
+
+        colorScale.domain(nested.map(d => d.key));
+        
+        var lSpace = width/(nested.map(d => d.key.length));
+
+        g.selectAll('.line-path').data(nested)
+          .enter().append('path')
+            .attr('class', 'line-path')
+            .attr('d', d => lineGenerator(d.values))
+            .attr('stroke', d => colorScale(d.key))
+            .style('fill', 'none')
+            .style('opacity', "1")
+            .style('stroke-width', "1.5px")
+            .append('text')
+             .attr('class', 'title')
+             .attr('y', 300)
+             .attr("x", 850)
+             .style('fill','red')
+             .text('Temp Text' );
+
+
+        g.append('text')
+            .attr('class', 'title')
+            .attr('y', -15)
+            .attr('x', 20)
+            .text(title);
+
+
+
+        // Features of the annotation
+        const annotations = [
+        {
+            note: {
+                label: "",
+                title: "Flights Trend is Nice and Normal"
+            },
+            connector: {
+                end: 'arrow', // 'arrow' also available
+             },
+            x: 660,
+            //y: yValue(lastYValue),
+            y: 20,
+            dy: 30,
+            dx: 60
+        }].map((d) => {
+             //d.color = d => colorScale(d.key);
+             d.color = 'blue'
+             return d;
+            });
+        // Add annotation to the chart
+        const makeAnnotations = d3.annotation()
+                                  .type(d3.annotationLabel)
+                                  .annotations(annotations);
+
+        g.selectAll('.annotation-group')
+     //   .select("#Arpil2019Chart")
+        .data([null])
+        .join(
+        (enter) =>
+          enter
+            .append('g')
+            .attr('class', 'annotation-group')
+            .call((enter) => enter.call(makeAnnotations)),
+             (update) =>
+          update.call((update) =>
+            update.call(makeAnnotations)
+          ),
+          (exit) => exit.remove()
+        );
+
+    })
+   // .catch (function() {
+     //   console.log("ERROR Reading CSV file")
+    //})
+}
+async function ChartApril2020() {
+
+    await d3.csv("http://127.0.0.1:8887/2020AggAviationData.csv")    
+    .then(function(data) {
+       const timeParser = d3.timeParse("%Y-%m-%d")
+
+       data.forEach(function(d) { 
+            d['FLIGHT_COUNT'] = +d['FLIGHT_COUNT']
+            d['FL_DATE'] = new Date(d['FL_DATE'])
+        })
+        svg = d3.select("#Arpil2020Chart").select("svg")
+        const width = +svg.attr('width');
+        const height = +svg.attr('height');
+
+        const title = "Number of Flights' Trend for top-10 States in April 2020";
+
+        const xValue = d => d.FL_DATE;
+        const xAxisLabel = 'Date';
+        const yValue = d => d.FLIGHT_COUNT;
+        const circleRadius = 6;
+        const yAxisLabel = 'Number of Flights';
+
+        const colorValue = d => d.ORIGIN_STATE;
+
+        const margin = { top: 60, right: 160, bottom: 88, left: 105 };
+        const innerWidth = width - margin.left - margin.right;
+        const innerHeight = height - margin.top - margin.bottom;
+        const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+        const g = svg.append('g')
+                     .attr('transform', `translate(${margin.left},${margin.top})`);
+
+
+       // console.log(data);
+        var xScale = d3.scaleTime()
+                       .domain(d3.extent(data,xValue))
+                       .range([0,innerWidth])
+                       .nice()
+
+        var xAxis = d3.axisBottom(xScale)
+                     // .scale(xScale)
+                      .tickSize(-innerHeight)
+                      .tickPadding(10)
+                      .ticks(10)
+                      .tickFormat(d3.timeFormat("%m/%d"));
+        //console.log(xScale)
+
+        var yScale = d3.scaleLinear()
+                       //.domain(d3.extent(data,yValue))
+                       .domain([0,2600])
+                       .range([innerHeight,0])
+                       //.padding(0.1)
+            //yScale.domain(data.map(function(d) { return d.ORIGIN_STATE; }));
+        //var yAxis = d3.axisLeft()
+          //            .scale(yScale)
+
+        const yAxis = d3.axisLeft()
+                        .scale(yScale)
+                        .tickSize(-innerWidth)
+                        .tickPadding(10);
+
+
+         const yAxisG = g.append('g').call(yAxis);
+        yAxisG.selectAll('.domain').remove();
+  
+         yAxisG.append('text')
+              .attr('class', 'axis-label')
+              .attr('y', -60)
+              .attr('x', -innerHeight / 2)
+              .attr('fill', 'black')
+              .attr('transform', `rotate(-90)`)
+              .attr('text-anchor', 'middle')
+              .text(yAxisLabel); 
+  
+        const xAxisG = g.append('g').call(xAxis)
+                .attr('transform', `translate(0,${innerHeight})`);
+  
+        xAxisG.select('.domain').remove();
+  
+        xAxisG.append('text')
+            .attr('class', 'axis-label')
+            .attr('y', 50)
+            .attr('x', innerWidth / 2)
+            .attr('fill', 'black')
+            .text(xAxisLabel); 
+  
+        
+
+        const lineGenerator = d3.line()
+                                  .x(d => xScale(xValue(d)))
+                                  .y(d => yScale(yValue(d)))
+                                  .curve(d3.curveBasis);
+        const lastYValue = d => 
+                    yValue(d.values[d.values.length - 1]);
+
+        nested = d3.nest()
+                    .key(colorValue)
+                    .entries(data)
+                    .sort((a, b) =>
+                         d3.descending(lastYValue(a), lastYValue(b)));
+ 
+ 
+         nested  =   nested.slice(0,10);
+        //console.log(nested)
 
 
         colorScale.domain(nested.map(d => d.key));
@@ -166,21 +473,645 @@ async function init() {
           .enter().append('path')
             .attr('class', 'line-path')
             .attr('d', d => lineGenerator(d.values))
-            .attr('stroke', d => colorScale(d.key));
+            .attr('stroke', d => colorScale(d.key))
+            .style('fill', 'none')
+            .style('opacity', "1")
+            .style('stroke-width', "1.5px");
 
         g.append('text')
             .attr('class', 'title')
             .attr('y', -15)
-            .attr('x', -20)
+            .attr('x', 20)
             .text(title);
 
+
+                    // Features of the annotation
+        const annotations = [
+        {
+            note: {
+                label: "",
+                title: "Flights' Trend is majorly impacted due to COVID-19"
+            },
+            connector: {
+                end: 'arrow', // 'dot' also available
+                stroke:'300',
+             },
+            x: 350,
+            //y: yValue(lastYValue),
+            y: 195,
+            dy: -80,
+            dx: 100
+        }].map((d) => {
+             //d.color = d => colorScale(d.key);
+             d.color = 'blue';
+             return d;
+            });
+        // Add annotation to the chart
+        const makeAnnotations = d3.annotation()
+                                  .type(d3.annotationLabel)
+                                  .annotations(annotations);
+
+        g.selectAll('.annotation-group')
+     //   .select("#Arpil2019Chart")
+        .data([null])
+        .join(
+        (enter) =>
+          enter
+            .append('g')
+            .attr('class', 'annotation-group')
+            .call((enter) => enter.call(makeAnnotations)),
+             (update) =>
+          update.call((update) =>
+            update.call(makeAnnotations)
+          ),
+          (exit) => exit.remove()
+        );
     })
-    .catch (function() {
-        console.log("ERROR Reading CSV file")
-    })
+   // .catch (function() {
+     //   console.log("ERROR Reading CSV file")
+    //})
 }
+async function ChartSummary() {
+
+    await d3.csv("http://127.0.0.1:8887/2019And2020AggAviationDataYear.csv")    
+        .then(function(data) {
+
+    dateParse = d3.timeParse("%Y-%m-%d");
+    dateFormat = d3.timeFormat("%m%d");
+    data.forEach(function(d) { 
+        d['FLIGHT_COUNT'] = +d['FLIGHT_COUNT'];
+        d['FL_DATE'] = +[dateFormat(dateParse(d['FL_DATE']))];
+       // d['FL_DATE'] = dateFormat(dateParse(d['FL_DATE']));
+       // d['FL_DATE'] = dateParse(d['FL_DATE']);
+        d['YEAR'] = +d['YEAR'];
+    })
+    
+    svg = d3.select("#ChartSummary").select("#LineChart").select("svg")
+    const width = +svg.attr('width');
+    const height = +svg.attr('height');
+ 
+    const margin = { top: 60, right: 200, bottom: 88, left: 105 };
+    const title = "Number of Flights' Trend in April-2019 and April-2020";
+
+    const xValue = d => d.FL_DATE;
+    const xAxisLabel = 'Date';
+    const yValue = d => d.FLIGHT_COUNT;
+    const circleRadius = 6;
+    const yAxisLabel = 'Number of Flights';
+
+    const colorValue = d => d.ORIGIN_STATE;
 
 
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+    const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+    const g = svg.append('g')
+                 .attr('transform', `translate(${margin.left},${margin.top})`);
+
+
+    console.log("ChartSummary Data",data);
+    console.log("new date",new Date("04-01"));
+    var xScale = d3.scaleTime()
+                  .domain(d3.extent(data,xValue))
+                  //.domain([new Date("04-01"), new Date ("04-30")])
+                  .range([0,innerWidth])
+                  .nice()
+
+    var xAxis = d3.axisBottom()
+                  .scale(xScale)
+                  .tickSize(-innerHeight)
+                  .tickPadding(15)
+                  .ticks(10)
+                 // .tickFormat(d3.timeFormat("%m-%d"));
+    //console.log(xScale)
+
+    var yScale = d3.scaleLinear()
+                   .domain(d3.extent(data,yValue))
+                   //.domain([0,2600])
+                   .range([innerHeight,0])
+    
+        //yScale.domain(data.map(function(d) { return d.ORIGIN_STATE; }));
+    //var yAxis = d3.axisLeft()
+      //            .scale(yScale)
+
+    const yAxis = d3.axisLeft()
+                    .scale(yScale)
+                    .tickSize(-innerWidth)
+                    .tickPadding(10);
+
+
+const yAxisG = g.append('g').call(yAxis);
+    yAxisG.selectAll('.domain').remove();
+
+     yAxisG.append('text')
+          .attr('class', 'axis-label')
+          .attr('y', -60)
+          .attr('x', -innerHeight / 2)
+          .attr('fill', 'black')
+          .attr('transform', `rotate(-90)`)
+          .attr('text-anchor', 'middle')
+          .text(yAxisLabel); 
+
+const xAxisG = g.append('g').call(xAxis)
+            .attr('transform', `translate(0,${innerHeight})`);
+
+    xAxisG.select('.domain').remove();
+
+    xAxisG.append('text')
+        .attr('class', 'axis-label')
+        .attr('y', 60)
+        .attr('x', innerWidth / 2)
+        .attr('fill', 'black')
+        .text(xAxisLabel); 
+
+    
+
+    const lineGenerator = d3.line()
+                              .x(d => xScale(xValue(d)))
+                              .y(d => yScale(yValue(d)))
+                              .curve(d3.curveBasis);
+    
+    const lastYValue = d => 
+                yValue(d.values[d.values.length - 1]);
+
+    nested = d3.nest()
+                    .key(colorValue)
+                    .entries(data)
+                    .sort((a, b) =>
+                    d3.descending(lastYValue(a), lastYValue(b))
+                );
+    nested  =   nested.slice(0,10);
+    console.log(nested)
+///////////////////
+    const formatYear = d3.timeFormat("%Y");
+    nest_year_state = d3.nest()
+                        .key(function(d) { 
+                            return (formatYear(d.FL_DATE));
+                         })
+                        .key( colorValue)
+                        .entries(data)
+                            .sort((a,b) => d3.descending(lastYValue(a),lastYValue(b)));
+   console.log("nest_year_state",nest_year_state);
+    
+  
+    year_key = (nest_year_state.map((d=> d.key)));
+
+   console.log("year_key",year_key);
+ 
+//////////////
+const nest_state_year = d3.nest()
+                        .key( colorValue)                        
+                        .key(function(d) { 
+                            return (formatYear(d.FL_DATE));
+                         })
+                        .entries(data)
+                            .sort((a,b) => d3.descending(lastYValue(a),lastYValue(b)));
+   console.log("nest_state_year",nest_state_year);
+
+////////////////////
+    colorScale.domain(nested.map(d => d.key));
+
+    ///////CREATING LIST MENU ///////////
+    var menu_list = d3.select("#ChartSummary").select("#Select-A-State")
+
+    menu_list.append("select").selectAll("option")
+            .data(nested)
+            .enter().append("option")
+                .attr("value", function(d) { return d.key; })
+            .text(function(d) {return(d.key); });
+
+
+   // var canvas = d3.select("#ChartSummary").data(nested);
+     // MENU
+    menu_list.on('change', function() {
+                    var selected_state = d3.select(this).select("select").property("value")
+                    updateNested_data(selected_state);
+                });
+
+    // UPDATE the first value
+    init_value = "California"
+    initGraph_data(init_value);
+    var filter;
+    var output_line;
+
+function initGraph_data(new_value) {
+        console.log(new_value);
+
+        state_sel = nested.filter(function(d) {
+                return (new_value == d.key)
+                });
+
+        /*state_sel = ((nest_year_state.map(function(d)  {
+                     return d.values.filter(function(d) {
+                       if (d.key == new_value) return d.values;} ); } )));
+ */
+ 
+        //console.log("Filtered With Selection",(nest_state_year.filter(function(d)  {
+         //            return new_value == d.key ; } ).filter(function (d) { d.key == "2019";} )));
+         
+        //filter_state = (nest_state_year.filter(function(d)  { if (new_value == d.key ) return d.values[0] ; } ));
+        filter_state = (nest_state_year.filter(function(d)  { return (new_value == d.key ); } ))[0];
+        console.log("filter_state",filter_state)
+        //filter_year = filter_state.values.get(function (d) { return function(d) {  d.key;} ) ;//.filter(function (d) { if (d.key == "new_value") return d.values;})});
+        //console.log("filter_year", filter_year );
+    
+         //state_sel = year_sel.filter(function(d) {
+        //       return (new_value == d.key)
+        //        });
+        console.log("ChartSummary:state_sel",state_sel);
+        
+
+        console.log("temp",state_sel.map(function(d) { return d.key;} ));
+
+        output_line = g.selectAll('.line-path').data(state_sel)
+             .enter().append('path')
+                .attr('class', 'line-path')
+                .attr('d', d => lineGenerator(d.values))
+     //           .attr('d', function (d) { 
+       //           if (formatYear(d.values[1].FL_DATE) == "2019") return lineGenerator(d.values[1]) ;} )
+                .attr('stroke', d => colorScale(new_value))
+                .style('fill', 'none')
+                .style('opacity', "1")
+                .style('stroke-width', "1.5px");
+
+
+
+
+}
+function updateNested_data(new_value) {
+        console.log(new_value);
+
+        //FILTER
+        state_sel = nested.filter(function(d) {
+                return (new_value == d.key)
+                });
+        console.log(state_sel);
+        
+        //colorScale.domain(state_sel.map(d => d.key));
+
+        output_line.data(state_sel)
+                .transition()
+                .duration(1000)
+                .attr('d', d => lineGenerator(d.values))
+                .attr('stroke', d => colorScale(d.key))
+                .style('fill', 'none')
+                .style('opacity', "1")
+                .style('stroke-width', "1.5px");
+            //.append('text')
+            //.attr('class', 'title')
+            //.attr('y', 300)
+            //.attr("x", 850)
+            //.style('fill','red')
+            //.text('Temp Text' );
+     }
+    g.append('text')
+        .attr('class', 'title')
+        .attr('y', -15)
+        .attr('x', 20)
+        .text(title);
+
+
+
+    // Features of the annotation
+    const annotations = [
+    {
+        note: {
+            label: "",
+            title: "Flights Trend is Nice and Normal"
+        },
+        connector: {
+            end: 'arrow', // 'arrow' also available
+         },
+        x: 660,
+        //y: yValue(lastYValue),
+        y: 20,
+        dy: 30,
+        dx: 60
+    }].map((d) => {
+         //d.color = d => colorScale(d.key);
+         d.color = 'blue'
+         return d;
+        });
+    // Add annotation to the chart
+    const makeAnnotations = d3.annotation()
+                              .type(d3.annotationLabel)
+                              .annotations(annotations);
+
+    g.selectAll('.annotation-group')
+ //   .select("#Arpil2019Chart")
+    .data([null])
+    .join(
+    (enter) =>
+      enter
+        .append('g')
+        .attr('class', 'annotation-group')
+        .call((enter) => enter.call(makeAnnotations)),
+         (update) =>
+      update.call((update) =>
+        update.call(makeAnnotations)
+      ),
+      (exit) => exit.remove()
+    );
+
+})
+// .catch (function() {
+ //   console.log("ERROR Reading CSV file")
+//})
+}
+async function ChartSummaryPromiseAll() {
+/*
+    Promise.all ([
+        d3.csv("http://127.0.0.1:8887/2019And2020AggAviationData.csv"),
+        d3.csv("http://127.0.0.1:8887/2020AggAviationData.csv")    
+    ]).then(function(data) {
+       const timeParser = d3.timeParse("%Y-%m-%d")
+
+        data[0].forEach(function(d) { 
+            d['FLIGHT_COUNT'] = +d['FLIGHT_COUNT']
+            d['FL_DATE'] = new Date(d['FL_DATE'])
+        })
+        data[1].forEach(function(d) { 
+            d['FLIGHT_COUNT'] = +d['FLIGHT_COUNT']
+            d['FL_DATE'] = new Date(d['FL_DATE'])
+        })
+        svg = d3.select("#ChartSummaryPromiseAll").select("#LineChart").select("svg")
+        const width = +svg.attr('width');
+        const height = +svg.attr('height');
+     
+        const margin = { top: 60, right: 200, bottom: 88, left: 105 };
+        const title = "Number of Flights' Trend for top-10 States in April 2019";
+
+        const xValue = d => d.FL_DATE;
+        const xAxisLabel = 'Date';
+        const yValue = d => d.FLIGHT_COUNT;
+        const circleRadius = 6;
+        const yAxisLabel = 'Number of Flights';
+
+        const colorValue = d => d.ORIGIN_STATE;
+
+
+        const innerWidth = width - margin.left - margin.right;
+        const innerHeight = height - margin.top - margin.bottom;
+        const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+        const g = svg.append('g')
+                     .attr('transform', `translate(${margin.left},${margin.top})`);
+
+
+        console.log(data[0]);
+        var xScale = d3.scaleTime()
+                      .domain(d3.extent(data[0],xValue))
+                      .range([0,innerWidth])
+                      .nice()
+
+        var xScale_2020 = d3.scaleTime()
+                     .domain(d3.extent(data[1],xValue))
+                      .range([0,innerWidth])
+                      .nice()
+        var xAxis = d3.axisBottom(xScale)
+                     // .scale(xScale)
+                      .tickSize(-innerHeight)
+                      .tickPadding(15)
+                      .ticks(10)
+                      .tickFormat(d3.timeFormat("%m/%d"));
+        //console.log(xScale)
+
+        var yScale = d3.scaleLinear()
+                       .domain(d3.extent(data[0],yValue))
+                       //.domain([0,2600])
+                       .range([innerHeight,0])
+        
+        var yScale_2020 = d3.scaleLinear()
+                       .domain(d3.extent(data[1],yValue))
+                       //.domain([0,2600])
+                       .range([innerHeight,0])
+                       //.padding(0.1)
+            //yScale.domain(data.map(function(d) { return d.ORIGIN_STATE; }));
+        //var yAxis = d3.axisLeft()
+          //            .scale(yScale)
+
+        const yAxis = d3.axisLeft()
+                        .scale(yScale)
+                        .tickSize(-innerWidth)
+                        .tickPadding(10);
+
+
+const yAxisG = g.append('g').call(yAxis);
+        yAxisG.selectAll('.domain').remove();
+  
+         yAxisG.append('text')
+              .attr('class', 'axis-label')
+              .attr('y', -60)
+              .attr('x', -innerHeight / 2)
+              .attr('fill', 'black')
+              .attr('transform', `rotate(-90)`)
+              .attr('text-anchor', 'middle')
+              .text(yAxisLabel); 
+  
+const xAxisG = g.append('g').call(xAxis)
+                .attr('transform', `translate(0,${innerHeight})`);
+  
+        xAxisG.select('.domain').remove();
+  
+        xAxisG.append('text')
+            .attr('class', 'axis-label')
+            .attr('y', 60)
+            .attr('x', innerWidth / 2)
+            .attr('fill', 'black')
+            .text(xAxisLabel); 
+  
+        
+
+        const lineGenerator = d3.line()
+                                  .x(d => xScale(xValue(d)))
+                                  .y(d => yScale(yValue(d)))
+                                  .curve(d3.curveBasis);
+        
+        const lineGenerator_2020 = d3.line()
+                                  .x(d => xScale_2020(xValue(d)))
+                                  .y(d => yScale_2020(yValue(d)))
+                                  .curve(d3.curveBasis);
+        const lastYValue = d => 
+                    yValue(d.values[d.values.length - 1]);
+
+        nested_2019 = d3.nest()
+                        .key(colorValue)
+                        .entries(data[0])
+                        .sort((a, b) =>
+                        d3.descending(lastYValue(a), lastYValue(b))
+                    );
+        nested_2020 = d3.nest()
+                    .key(colorValue)
+                    .entries(data[1])
+                    .sort((a, b) =>
+                    d3.descending(lastYValue(a), lastYValue(b))
+            );
+       // nested  =   nested.slice(0,10);
+        console.log(nested_2019)
+///////////////////
+     //   const formatYear = d3.timeFormat("%Y");
+      //  nest_year_state = d3.nest()
+        //                    .key(function(d) { 
+          //                      return (formatYear(d.FL_DATE));
+            //                 })
+              //              .key( colorValue)
+                //            .entries(data)
+                  //              .sort((a,b) => d3.descending(lastYValue(a),lastYValue(b)));
+        //console.log(nest_year_state);
+        
+       // console.log(nest_year_state.map ( function(d) {return d.values.map(function(d) { return d.values[0];} ); } ));
+        
+       // year_key = (nest_year_state.map((d=> d.key)));
+
+        //console.log(year_key);
+       // state_key = year_key.map(d => d.values);
+      //  console.log(state_key.map(d => d.key)); 
+
+////////////////////
+        colorScale.domain(nested_2019.map(d => d.key));
+
+        ///////CREATING LIST MENU ///////////
+        var menu_list = d3.select("#ChartSummary").select("#Select-A-State")
+
+        menu_list.append("select").selectAll("option")
+                .data(nested_2019)
+                .enter().append("option")
+                    .attr("value", function(d) { return d.key; })
+                .text(function(d) {return(d.key); });
+
+
+       // var canvas = d3.select("#ChartSummary").data(nested);
+         // MENU
+        menu_list.on('change', function() {
+                        var selected_state = d3.select(this).select("select").property("value")
+                        updateNested_data(selected_state);
+                    });
+
+        // UPDATE the first value
+        init_value = "California"
+        initGraph_data(init_value);
+        var filter;
+        var output_line;
+
+    function initGraph_data(new_value) {
+            console.log(new_value);
+
+            state_sel_2019 = nested_2019.filter(function(d) {
+                    return (new_value == d.key)
+                    });
+
+            state_sel_2020 = nested_2020.filter(function(d) {
+                    return (new_value == d.key)
+                    });
+
+            //state_sel = year_sel.filter(function(d) {
+             //       return (new_value == d.key)
+            //        });
+            console.log("state_sel_2019",state_sel_2019);
+            console.log("state_sel_2020",state_sel_2020);
+
+
+
+            output_line = g.selectAll('.line-path').data(state_sel_2019)
+                 .enter().append('path')
+                .attr('class', 'line-path')
+                .attr('d', d => lineGenerator(d.values))
+       //         .attr('d', d => lineGenerator_2019(d.values))
+                .attr('stroke', d => colorScale(d.key))
+                .style('fill', 'none')
+                .style('opacity', "1")
+                .style('stroke-width', "1.5px");
+
+            output_line.data(state_sel_2020)
+                    .attr("class","line-path")
+                    .attr('d', d => lineGenerator_2020(d.values))
+                    .attr('stroke', d => colorScale(d.key))
+                    .style('fill', 'none')
+                    .style('opacity', "1")
+                    .style('stroke-width', "1.5px");
+
+
+    }
+    function updateNested_data(new_value) {
+            console.log(new_value);
+
+            //FILTER
+            state_sel_2019 = nested_2019.filter(function(d) {
+                    return (new_value == d.key)
+                    });
+            console.log(state_sel_2019);
+            
+            //colorScale.domain(state_sel.map(d => d.key));
+
+            output_line.data(state_sel_2019)
+                    .transition()
+                    .duration(1000)
+                    .attr('d', d => lineGenerator(d.values))
+                    .attr('stroke', d => colorScale(d.key))
+                    .style('fill', 'none')
+                    .style('opacity', "1")
+                    .style('stroke-width', "1.5px");
+                //.append('text')
+                //.attr('class', 'title')
+                //.attr('y', 300)
+                //.attr("x", 850)
+                //.style('fill','red')
+                //.text('Temp Text' );
+         }
+        g.append('text')
+            .attr('class', 'title')
+            .attr('y', -15)
+            .attr('x', 20)
+            .text(title);
+
+
+
+        // Features of the annotation
+        const annotations = [
+        {
+            note: {
+                label: "",
+                title: "Flights Trend is Nice and Normal"
+            },
+            connector: {
+                end: 'arrow', // 'arrow' also available
+             },
+            x: 660,
+            //y: yValue(lastYValue),
+            y: 20,
+            dy: 30,
+            dx: 60
+        }].map((d) => {
+             //d.color = d => colorScale(d.key);
+             d.color = 'blue'
+             return d;
+            });
+        // Add annotation to the chart
+        const makeAnnotations = d3.annotation()
+                                  .type(d3.annotationLabel)
+                                  .annotations(annotations);
+
+        g.selectAll('.annotation-group')
+     //   .select("#Arpil2019Chart")
+        .data([null])
+        .join(
+        (enter) =>
+          enter
+            .append('g')
+            .attr('class', 'annotation-group')
+            .call((enter) => enter.call(makeAnnotations)),
+             (update) =>
+          update.call((update) =>
+            update.call(makeAnnotations)
+          ),
+          (exit) => exit.remove()
+        );
+
+    })
+   // .catch (function() {
+     //   console.log("ERROR Reading CSV file")
+    //})
+    */
+}
 </script>
 </body>
 </html>
