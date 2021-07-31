@@ -517,11 +517,26 @@ async function ChartApril2020() {
                 end: 'arrow', // 'dot' also available
                 stroke:'300',
              },
-            x: 350,
+            x: 540,
             //y: yValue(lastYValue),
-            y: 195,
+            y: 215,
             dy: -80,
-            dx: 100
+            dx: 90
+        },
+        ,
+        {
+            note: {
+                label: "",
+                title: "All 4 Weekends' consistant pattern also completely disturbed!"
+            },
+            connector: {
+                end: 'arrow', // 'dot' also available
+             },
+            x: 295,
+            //y: yValue(lastYValue),
+            y: 170,
+            dy: -60,
+            dx: 40
         }].map((d) => {
              //d.color = d => colorScale(d.key);
              d.color = 'red';
