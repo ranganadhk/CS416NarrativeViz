@@ -76,21 +76,11 @@
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         opacity: 0.65;
     }
-    .svg-container {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    padding-bottom: 100%;
-    vertical-align: top;
-    overflow: hidden;
-}
-
-.svg-content {
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
+    .legend rect {
+        fill:white;
+        stroke:black;
+        opacity:0.7;
+    }
 </style>
 <body onload='Introduction(), ChartApril2019() ,ChartApril2020(), MultiChartSummary()'>
 
@@ -210,11 +200,13 @@ async function ChartApril2019() {
             d['FL_DATE'] = new Date(d['FL_DATE'])
         })
 
+
+
         svg = d3.select("#Arpil2019Chart").select("svg")
         const width = +svg.attr('width');
         const height = +svg.attr('height');
         const margin = { top: 60, right: 200, bottom: 88, left: 105 };
-        const title = "Number of Flights' Trend for top-10 States in April 2019";
+        const title = "Top-10 USA States: Flights' Trend In April 2019(Pre-COVID-19)";
 
         const xValue = d => d.FL_DATE;
         const xAxisLabel = 'Date';
@@ -244,7 +236,6 @@ async function ChartApril2019() {
                       .tickPadding(15)
                       .ticks(10)
                       .tickFormat(d3.timeFormat("%b/%d"));
-  
 
         var yScale = d3.scaleLinear()
                        //.domain(d3.extent(data,yValue))
@@ -317,31 +308,58 @@ async function ChartApril2019() {
             .attr('stroke', d => colorScale(d.key))
             .style('fill', 'none')
             .style('opacity', "1")
-            .style('stroke-width', "1.5px");
-
-
+            .style('stroke-width', "1.5px");            
+            
+      
+        var states = g.selectAll(".states")
+                   .data(nested)
+                   .enter().append("g")
+                   .attr("class", "states");  
+            
+        states.append("text")
+            .data(nested)
+            .datum(function(d) { return {name: d.key, value: d.values[d.values.length - 1]}; })
+            .attr("transform", function(d) { return "translate(" + xScale(d.value.FL_DATE) + "," + yScale(d.value.FLIGHT_COUNT) + ")"; })
+            .attr("dx", function(d) 
+                {   var x=4;
+                    if (d.name == "Georgia" ) x=5;
+                    return x; 
+                } )
+            .attr("dy", function(d) 
+                {
+                    var y=0; 
+                    if (d.name == "Georgia" ) y=-5;
+                    if (d.name == "New York" ) y = 7;
+                    if (d.name == "Colorado" ) y = 7;
+                    if (d.name == "Pennsylvania" ) y = 7;
+                    if (d.name == "North Carolina" ) y = 5;
+                    return y;
+                } )
+            .attr('stroke', d => colorScale(d.name))
+            .style('opacity', "1")
+            .style('font-size', ".7em")
+            .style('stroke-width', "1.3px")
+            .text(function(d) { return ( d.name ); });
 
         g.append('text')
             .attr('class', 'title')
-            .attr('y', -15)
-            .attr('x', 20)
+            .attr('y', -30)
+            .attr('x', -60)
             .text(title);
-
-
 
         // Features of the annotation
         const annotations = [
         {
             note: {
                 label: "",
-                title: "Flights Trend is Nice and Normal"
+                title: "Overall Flights' Trend is Nice and Normal"
             },
             connector: {
                 end: 'arrow', // 'arrow' also available
              },
-            x: 600,
+            x: 450,
             //y: yValue(lastYValue),
-            y: 20,
+            y: 250,
             dy: 30,
             dx: 60
         },
@@ -353,7 +371,7 @@ async function ChartApril2019() {
             connector: {
                 end: 'arrow', // 'dot' also available
              },
-            x: 270,
+            x: 140,
             //y: yValue(lastYValue),
             y: 250,
             dy: 30,
@@ -386,7 +404,7 @@ async function ChartApril2019() {
 
     })
     .catch (function() {
-        console.log("ERROR Reading CSV file")
+        console.log("ERROR in ChartApril2019 function")
     })
 }
 async function ChartApril2020() {
@@ -400,12 +418,11 @@ async function ChartApril2020() {
              d['FL_DATE'] = new Date(d['FL_DATE'])
          })
         
-
         svg = d3.select("#Arpil2020Chart").select("svg")
         const width = +svg.attr('width');
         const height = +svg.attr('height');
 
-        const title = "Number of Flights' Trend for top-10 States in April 2020";
+        const title = "Top-10 USA States: Flights' Trend In April 2020 (During Peak COVID-19)";
 
         const xValue = d => d.FL_DATE;
         const xAxisLabel = 'Date';
@@ -423,7 +440,6 @@ async function ChartApril2020() {
                      .attr('transform', `translate(${margin.left},${margin.top})`);
 
 
-
         var xScale = d3.scaleTime()
                        .domain(d3.extent(data,xValue))
                        .range([0,innerWidth])
@@ -435,8 +451,6 @@ async function ChartApril2020() {
                       .tickPadding(15)
                       .ticks(10)
                       .tickFormat(d3.timeFormat("%b/%d"));
-
-
         var yScale = d3.scaleLinear()
                        //.domain(d3.extent(data,yValue))
                        .domain([0,2600])
@@ -497,10 +511,8 @@ async function ChartApril2020() {
                          d3.descending(lastYValue(a), lastYValue(b)));
  
  
-         nested  =   nested.slice(0,10);
-
-
-
+        nested  =   nested.slice(0,10);
+        
         colorScale.domain(nested.map(d => d.key));
     
          g.selectAll('.line-path').data(nested)
@@ -512,10 +524,44 @@ async function ChartApril2020() {
             .style('opacity', "1")
             .style('stroke-width', "1.5px");
 
+        var states = g.selectAll(".states")
+            .data(nested)
+            .enter().append("g")
+            .attr("class", "states");  
+     
+        states.append("text")
+            .data(nested)
+            .datum(function(d) { return {name: d.key, value: d.values[d.values.length - 1]}; })
+            .attr("transform", function(d) { return "translate(" + xScale(d.value.FL_DATE) + "," + yScale(d.value.FLIGHT_COUNT) + ")"; })
+            .attr("dx", function(d) 
+                {   var x=10;
+                    return x; 
+                 } )
+            .attr("dy", function(d) 
+            {
+             var y=0; 
+             if (d.name == "Texas" ) y=-2;
+             if (d.name == "California" ) y=-2;
+             if (d.name == "Florida" ) y=-3;
+             if (d.name == "Illinois" ) y=-1;
+             if (d.name == "North Carolina" ) y = 0;
+             if (d.name == "Colorado" ) y = 6;
+             if (d.name == "Georgia" ) y=8;
+             if (d.name == "Pennsylvania" ) y = 15;
+             if (d.name == "Virginia" ) y = 25;
+             if (d.name == "Arizona" ) y = 35;
+             return y;
+            } )
+            .attr('stroke', d => colorScale(d.name))
+            .style('opacity', "1")
+            .style('font-size', ".7em")
+            .style('stroke-width', "1.3px")
+            .text(function(d) { return ( d.name ); });
+
         g.append('text')
             .attr('class', 'title')
-            .attr('y', -15)
-            .attr('x', 20)
+            .attr('y', -30)
+            .attr('x', -60)
             .text(title);
 
 
@@ -576,7 +622,7 @@ async function ChartApril2020() {
         );
     })
     .catch (function() {
-        console.log("ERROR Reading CSV file")
+        console.log("ERROR in ChartApril2020 function")
     })
 }
 async function MultiChartSummary () {
@@ -590,15 +636,12 @@ async function MultiChartSummary () {
         d['FLIGHT_COUNT_2020'] = +d['FLIGHT_COUNT_2020'];
         d['FL_DATE'] = +[dateFormat(dateParse(d['FL_DATE']))];
     })
-
-
-
+    
     svg2019 = d3.select("#MultiChartSummary").select("#LineChart").select("#svg2019")
     svg2020 = d3.select("#MultiChartSummary").select("#LineChart").select("#svg2020")
 
     const width = +svg2019.attr('width');
     const height = +svg2019.attr('height');
-
 
 
     const margin2019 = { top: 40, right: 11, bottom: 88, left: 85 };
@@ -616,6 +659,8 @@ async function MultiChartSummary () {
 
     const innerWidth = width - margin2019.left - margin2019.right;
     const innerHeight = height - margin2019.top - margin2019.bottom;
+
+   // const innerWidth2020 = width - margin2020.left - margin2020.right;
 
 
     const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
@@ -727,22 +772,21 @@ async function MultiChartSummary () {
 
     nested20192020  =   nested20192020.slice(0,10);
 
-g.append('text')
-.attr('class', 'title')
-.attr('y', -15)
-.attr('x', 20)
-.text("2019");
+    g.append('text')
+        .attr('class', 'title')
+        .attr('y', -15)
+        .attr('x', -45)
+        .text("Selected Flight's Trend in April-2019");
 
-g2020.append('text')
-.attr('class', 'title')
-.attr('y', -15)
-.attr('x', 20)
-.text("2020");
+    g2020.append('text')
+        .attr('class', 'title')
+        .attr('y', -15)
+        .attr('x', -45)
+       // .stlye("font-size","1em")
+        .text("Selected Flight's Trend in April-2020");
 
 
     colorScale.domain(nested20192020.map(d => d.key));
-
-
 
     ///////CREATING LIST MENU ///////////
     var menu_list = d3.select("#MultiChartSummary").select("#Select-A-State")
@@ -764,15 +808,14 @@ g2020.append('text')
     initGraph_data(init_value);
     var toUpdateline2019;
     var toUpdateline2020;
+    var states2019;
+    var states2020;
 
     function initGraph_data(new_value) {
-
-
 
         state_sel_init = nested20192020.filter(function(d) {
             return (new_value == d.key)
             });
-
         
         toUpdateline2019 = g.selectAll('.line-path').data(state_sel_init)
             .enter().append('path')
@@ -792,6 +835,38 @@ g2020.append('text')
             .style('fill', 'none')
             .style('opacity', "1")
             .style('stroke-width', "1.5px");
+
+        states2019 = g.selectAll(".states2019")
+            .data(state_sel_init)
+            .enter().append("g")
+            .attr("class", "states2019");  
+        states2019.append("text")
+            .data(state_sel_init)
+            .datum(function(d) { return {name: d.key, value: d.values[d.values.length - 1]}; })
+            .attr("transform", function(d) { return "translate(" + xScale(d.value.FL_DATE) + "," + yScale(d.value.FLIGHT_COUNT_2019) + ")"; })
+            .attr("dx", -60)
+            .attr("dy", -10)
+            .attr('stroke', d => colorScale(d.name))
+            .style('opacity', "1")
+            .style('font-size', ".7em")
+            .style('stroke-width', "1.3px")
+            .text(function(d) { return ( d.name ); });
+
+        states2020 = g2020.selectAll(".states2020")
+            .data(state_sel_init)
+            .enter().append("g")
+            .attr("class", "states2020");  
+        states2020.append("text")
+            .data(state_sel_init)
+            .datum(function(d) { return {name: d.key, value: d.values[d.values.length - 1]}; })
+            .attr("transform", function(d) { return "translate(" + xScale(d.value.FL_DATE) + "," + yScale(d.value.FLIGHT_COUNT_2020) + ")"; })
+            .attr("dx", -60)
+            .attr("dy", -10)
+            .attr('stroke', d => colorScale(d.name))
+            .style('opacity', "1")
+            .style('font-size', ".7em")
+            .style('stroke-width', "1.3px")
+            .text(function(d) { return ( d.name ); });
     }
     function updateNested_data(new_value) {
     
@@ -807,12 +882,6 @@ g2020.append('text')
                 .style('fill', 'none')
                 .style('opacity', "1")
                 .style('stroke-width', "1.5px");
-            //.append('text')
-            //.attr('class', 'title')
-            //.attr('y', 300)
-            //.attr("x", 850)
-            //.style('fill','red')
-            //.text('Temp Text' );
 
 
         toUpdateline2020.data(state_sel)
@@ -823,18 +892,42 @@ g2020.append('text')
         .style('fill', 'none')
         .style('opacity', "1")
         .style('stroke-width', "1.5px");
-    //.append('text')
-    //.attr('class', 'title')
-    //.attr('y', 300)
-    //.attr("x", 850)
-    //.style('fill','red')
-    //.text('Temp Text' );
+
+
+
+    states2019.append("text")
+        .data(state_sel)
+        .datum(function(d) { return {name: d.key, value: d.values[d.values.length - 1]}; })
+        .transition()
+        .duration(1000)
+        .attr("transform", function(d) { return "translate(" + xScale(d.value.FL_DATE) + "," + yScale(d.value.FLIGHT_COUNT_2019) + ")"; })
+        .attr("dx", -60)
+        .attr("dy", -10)
+        .attr('stroke', d => colorScale(d.name))
+        .style('opacity', "1")
+        .style('font-size', ".7em")
+        .style('stroke-width', "1.3px")
+        .text(function(d) { return ( d.name ); });
+ 
+    states2020.append("text")
+        .data(state_sel)
+        .datum(function(d) { return {name: d.key, value: d.values[d.values.length - 1]}; })
+        .transition()
+        .duration(1000)
+        .attr("transform", function(d) { return "translate(" + xScale(d.value.FL_DATE) + "," + yScale(d.value.FLIGHT_COUNT_2020) + ")"; })
+        .attr("dx", -60)
+        .attr("dy", -10)
+        .attr('stroke', d => colorScale(d.name))
+        .style('opacity', "1")
+        .style('font-size', ".7em")
+        .style('stroke-width', "1.3px")
+        .text(function(d) { return ( d.name ); });
     }
-    
 })
 .catch (function() {
-    console.log("ERROR Reading CSV file")
+    console.log("ERROR in MultiChartSummary Function")
 })
+
 }
 </script>
 </body>
