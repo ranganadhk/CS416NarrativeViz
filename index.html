@@ -113,7 +113,7 @@
 
 <script>
 async function Introduction() { 
-    await d3.csv("http://127.0.0.1:8887/2019AggAviationData.csv")  
+    await d3.csv("2019AggAviationData.csv")  
     svg = d3.select("#Introduction").select("svg")
         const width = +svg.attr('width');
         const height = +svg.attr('height');
@@ -201,7 +201,7 @@ async function Introduction() {
 }
 async function ChartApril2019() {
 
-     await d3.csv("http://127.0.0.1:8887/2019AggAviationData.csv")    
+     await d3.csv("./2019AggAviationData.csv")    
     .then(function(data) {
        const timeParser = d3.timeParse("%Y-%m-%d")
 
@@ -243,7 +243,7 @@ async function ChartApril2019() {
                       .tickPadding(15)
                       .ticks(10)
                       .tickFormat(d3.timeFormat("%m/%d"));
-        //console.log(xScale)
+
 
         var yScale = d3.scaleLinear()
                        //.domain(d3.extent(data,yValue))
@@ -392,15 +392,15 @@ async function ChartApril2019() {
 }
 async function ChartApril2020() {
 
-    await d3.csv("http://127.0.0.1:8887/2020AggAviationData.csv")    
+    await d3.csv("./2020AggAviationData.csv")    
     .then(function(data) {
-        dateParse = d3.timeParse("%Y-%m-%d");
-        dateFormat = d3.timeFormat("%m%d");
+        const timeParser = d3.timeParse("%Y-%m-%d")
 
-       data.forEach(function(d) { 
-            d['FLIGHT_COUNT'] = +d['FLIGHT_COUNT']
-            d['FL_DATE'] = +[dateFormat(dateParse(d['FL_DATE']))];
-        })
+        data.forEach(function(d) { 
+             d['FLIGHT_COUNT'] = +d['FLIGHT_COUNT']
+             d['FL_DATE'] = new Date(d['FL_DATE'])
+         })
+        
 
         svg = d3.select("#Arpil2020Chart").select("svg")
         const width = +svg.attr('width');
@@ -576,7 +576,7 @@ async function ChartApril2020() {
     })
 }
 async function MultiChartSummary () {
-    await d3.csv("http://127.0.0.1:8887/2019And2020TwoColAggAviationData.csv")    
+    await d3.csv("./2019And2020TwoColAggAviationData.csv")    
         .then(function(data) {
 
     dateParse = d3.timeParse("%Y-%m-%d");
