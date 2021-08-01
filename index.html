@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <html>
-<title> Narrative Viz Assignment </title>
+<title> CS416 Narrative visualization  </title>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script> </script>
 
@@ -76,8 +76,23 @@
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         opacity: 0.65;
     }
+    .svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 </style>
-<body onload='Introduction(), ChartApril2019() ,ChartApril2020(), ChartSummary()'>
+<body onload='Introduction(), ChartApril2019() ,ChartApril2020(), MultiChartSummary()'>
 
 <div id="Introduction">
     <svg width=960 height=500>
@@ -88,27 +103,22 @@
 <div id="Arpil2020Chart">
     <svg width=960 height=500>
 </div>
-<div id="ChartSummary">
+<div id="MultiChartSummary">
     <div id="Select-A-State"></div>
     <div id="LineChart">
-        <svg width=960 height=500>
-    </div>
-</div>
-<div id="ChartSummaryPromiseAll">
-    <div id="Select-A-State"></div>
-    <div id="LineChart">
-        <svg width=960 height=500>
+        <svg id= "svg2019" width=480 height=500></svg>
+        <svg id = "svg2020" width=480 height=500></svg>
     </div>
 </div>
 
 <script>
 async function Introduction() { 
-    await d3.csv("2019AggAviationData.csv")  
+    await d3.csv("http://127.0.0.1:8887/2019AggAviationData.csv")  
     svg = d3.select("#Introduction").select("svg")
         const width = +svg.attr('width');
         const height = +svg.attr('height');
         const margin = { top: 60, right: 160, bottom: 88, left: 105 };
-    const title1 = "COVID-19 Impact on the number of Flights and Their trends in USA ";
+    const title1 = "COVID-19 Impact on the number of Flights and Their trends in USA Top-10 States ";
     const title2 = "Comparison between April-2019 and April-2020";
     
     const g = svg.append('g')
@@ -117,7 +127,7 @@ async function Introduction() {
     g.append('text')
             .attr('class', 'title')
             .attr('y', 15)
-            .attr('x', -5)
+            .attr('x', -25)
             //.style('font-size',24)
             //.style("text-anchor",'middle')
             .text(title1);
@@ -191,7 +201,7 @@ async function Introduction() {
 }
 async function ChartApril2019() {
 
-     await d3.csv("2019AggAviationData.csv")    
+     await d3.csv("http://127.0.0.1:8887/2019AggAviationData.csv")    
     .then(function(data) {
        const timeParser = d3.timeParse("%Y-%m-%d")
 
@@ -221,7 +231,7 @@ async function ChartApril2019() {
                      .attr('transform', `translate(${margin.left},${margin.top})`);
 
 
-        //console.log(data);
+
         var xScale = d3.scaleTime()
                       .domain(d3.extent(data,xValue))
                       .range([0,innerWidth])
@@ -292,13 +302,8 @@ async function ChartApril2019() {
 
         nested  =   nested.slice(0,10);
 
-        console.log("flight_count",nested)
-
-
         colorScale.domain(nested.map(d => d.key));
         
-        var lSpace = width/(nested.map(d => d.key.length));
-
         g.selectAll('.line-path').data(nested)
           .enter().append('path')
             .attr('class', 'line-path')
@@ -306,11 +311,13 @@ async function ChartApril2019() {
             .attr('stroke', d => colorScale(d.key))
             .style('fill', 'none')
             .style('opacity', "1")
-            .style('stroke-width', "1.5px")
-            .append('text')
-             .attr('class', 'title')
-             .attr('y', 300)
-             .attr("x", 850)
+            .style('stroke-width', "1.5px");
+
+
+        g.append('text')
+            .attr("transform", "translate(" + (width+3) + "," + 300 + ")")
+            .attr("dy", ".35em")
+            .attr("text-anchor", "start")
              .style('fill','red')
              .text('Temp Text' );
 
@@ -328,12 +335,12 @@ async function ChartApril2019() {
         {
             note: {
                 label: "",
-                title: "All Top-10 Flights' Trend is Nice and Normal"
+                title: "Flights Trend is Nice and Normal"
             },
             connector: {
                 end: 'arrow', // 'arrow' also available
              },
-            x: 620,
+            x: 600,
             //y: yValue(lastYValue),
             y: 20,
             dy: 30,
@@ -379,20 +386,22 @@ async function ChartApril2019() {
         );
 
     })
-   // .catch (function() {
-     //   console.log("ERROR Reading CSV file")
-    //})
+    .catch (function() {
+        console.log("ERROR Reading CSV file")
+    })
 }
 async function ChartApril2020() {
 
-    await d3.csv("2020AggAviationData.csv")    
+    await d3.csv("http://127.0.0.1:8887/2020AggAviationData.csv")    
     .then(function(data) {
-       const timeParser = d3.timeParse("%Y-%m-%d")
+        dateParse = d3.timeParse("%Y-%m-%d");
+        dateFormat = d3.timeFormat("%m%d");
 
        data.forEach(function(d) { 
             d['FLIGHT_COUNT'] = +d['FLIGHT_COUNT']
-            d['FL_DATE'] = new Date(d['FL_DATE'])
+            d['FL_DATE'] = +[dateFormat(dateParse(d['FL_DATE']))];
         })
+
         svg = d3.select("#Arpil2020Chart").select("svg")
         const width = +svg.attr('width');
         const height = +svg.attr('height');
@@ -415,7 +424,7 @@ async function ChartApril2020() {
                      .attr('transform', `translate(${margin.left},${margin.top})`);
 
 
-       // console.log(data);
+ 
         var xScale = d3.scaleTime()
                        .domain(d3.extent(data,xValue))
                        .range([0,innerWidth])
@@ -427,7 +436,7 @@ async function ChartApril2020() {
                       .tickPadding(10)
                       .ticks(10)
                       .tickFormat(d3.timeFormat("%m/%d"));
-        //console.log(xScale)
+ 
 
         var yScale = d3.scaleLinear()
                        //.domain(d3.extent(data,yValue))
@@ -485,7 +494,7 @@ async function ChartApril2020() {
  
  
          nested  =   nested.slice(0,10);
-        //console.log(nested)
+
 
 
         colorScale.domain(nested.map(d => d.key));
@@ -562,231 +571,237 @@ async function ChartApril2020() {
           (exit) => exit.remove()
         );
     })
-   // .catch (function() {
-     //   console.log("ERROR Reading CSV file")
-    //})
+    .catch (function() {
+        console.log("ERROR Reading CSV file")
+    })
 }
-async function ChartSummary() {
-
-    await d3.csv("2019And2020AggAviationDataYear.csv")    
+async function MultiChartSummary () {
+    await d3.csv("http://127.0.0.1:8887/2019And2020TwoColAggAviationData.csv")    
         .then(function(data) {
 
     dateParse = d3.timeParse("%Y-%m-%d");
     dateFormat = d3.timeFormat("%m%d");
     data.forEach(function(d) { 
-        d['FLIGHT_COUNT'] = +d['FLIGHT_COUNT'];
+        d['FLIGHT_COUNT_2019'] = +d['FLIGHT_COUNT_2019'];
+        d['FLIGHT_COUNT_2020'] = +d['FLIGHT_COUNT_2020'];
         d['FL_DATE'] = +[dateFormat(dateParse(d['FL_DATE']))];
-       // d['FL_DATE'] = dateFormat(dateParse(d['FL_DATE']));
-       // d['FL_DATE'] = dateParse(d['FL_DATE']);
-        d['YEAR'] = +d['YEAR'];
     })
+
+
+
+    svg2019 = d3.select("#MultiChartSummary").select("#LineChart").select("#svg2019")
+    svg2020 = d3.select("#MultiChartSummary").select("#LineChart").select("#svg2020")
+
+    const width = +svg2019.attr('width');
+    const height = +svg2019.attr('height');
+
+
+
+    const margin2019 = { top: 40, right: 0, bottom: 88, left: 85 };
+    const margin2020 = { top: 40, right: 0, bottom: 88, left: 85 };
     
-    svg = d3.select("#ChartSummary").select("#LineChart").select("svg")
-    const width = +svg.attr('width');
-    const height = +svg.attr('height');
- 
-    const margin = { top: 60, right: 200, bottom: 88, left: 105 };
-    const title = "TOP-10 States: Number of Flights' Trend in April-2019 and April-2020";
+    const title = "Number of Flights' Trend for top-10 States in April 2019";
 
     const xValue = d => d.FL_DATE;
     const xAxisLabel = 'Date';
-    const yValue = d => d.FLIGHT_COUNT;
-    const circleRadius = 6;
+    const yValue = d => d.FLIGHT_COUNT_2019;
+    const yValue2020 = d => d.FLIGHT_COUNT_2020;
     const yAxisLabel = 'Number of Flights';
 
     const colorValue = d => d.ORIGIN_STATE;
 
+    const innerWidth = width - margin2019.left - margin2019.right;
+    const innerHeight = height - margin2019.top - margin2019.bottom;
 
-    const innerWidth = width - margin.left - margin.right;
-    const innerHeight = height - margin.top - margin.bottom;
+   // const innerWidth2020 = width - margin2020.left - margin2020.right;
+
+
     const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
-    const g = svg.append('g')
-                 .attr('transform', `translate(${margin.left},${margin.top})`);
 
-
+    const g = svg2019.append('g')
+        .attr('transform', `translate(${margin2019.left},${margin2019.top})`);
+ 
+    const g2020 = svg2020.append('g')
+        .attr('transform', `translate(${margin2020.left},${margin2020.top})`);
 
     var xScale = d3.scaleTime()
-                  .domain(d3.extent(data,xValue))
-                  //.domain([new Date("04-01"), new Date ("04-30")])
-                  .range([0,innerWidth])
-                  .nice()
+                   .domain(d3.extent(data,xValue))
+                   //.domain([new Date("04-01"), new Date ("04-30")])
+                   .range([0,innerWidth])
+                   .nice()
 
     var xAxis = d3.axisBottom()
-                  .scale(xScale)
-                  .tickSize(-innerHeight)
-                  .tickPadding(15)
-                  .ticks(10)
-                 // .tickFormat(d3.timeFormat("%m-%d"));
-
+                      .scale(xScale)
+                      .tickSize(-innerHeight)
+                      .tickPadding(15)
+                      .ticks(10)
+                      //.tickFormat(d3.timeFormat("%m/%d"));
 
     var yScale = d3.scaleLinear()
-                   .domain(d3.extent(data,yValue))
-                   //.domain([0,2600])
-                   .range([innerHeight,0])
-    
-        //yScale.domain(data.map(function(d) { return d.ORIGIN_STATE; }));
-    //var yAxis = d3.axisLeft()
-      //            .scale(yScale)
+                      .domain([0,2600])
+                      .range([innerHeight,0])
 
-    const yAxis = d3.axisLeft()
-                    .scale(yScale)
-                    .tickSize(-innerWidth)
-                    .tickPadding(10);
+        const yAxis = d3.axisLeft()
+                      .scale(yScale)
+                      .tickSize(-innerWidth)
+                      .tickPadding(10);
 
+    const yAxis2020 = d3.axisLeft()
+                      .scale(yScale)
+                      .tickSize(-innerWidth)
+                      .tickPadding(10);
 
-const yAxisG = g.append('g').call(yAxis);
+    const yAxisG = g.append('g').call(yAxis);
     yAxisG.selectAll('.domain').remove();
+    
+    yAxisG.append('text')
+    .attr('class', 'axis-label')
+    .attr('y', -60)
+    .attr('x', -innerHeight / 2)
+    .attr('fill', 'black')
+    .attr('transform', `rotate(-90)`)
+    .attr('text-anchor', 'middle')
+    .text(yAxisLabel); 
 
-     yAxisG.append('text')
-          .attr('class', 'axis-label')
-          .attr('y', -60)
-          .attr('x', -innerHeight / 2)
-          .attr('fill', 'black')
-          .attr('transform', `rotate(-90)`)
-          .attr('text-anchor', 'middle')
-          .text(yAxisLabel); 
 
-const xAxisG = g.append('g').call(xAxis)
-            .attr('transform', `translate(0,${innerHeight})`);
+
+    const yAxisG2020 = g2020.append('g').call(yAxis2020);
+    yAxisG2020.selectAll('.domain').remove();
+    yAxisG2020.append('text')
+    .attr('class', 'axis-label')
+    .attr('y', -60)
+    .attr('x', -innerHeight / 2)
+    .attr('fill', 'black')
+    .attr('transform', `rotate(-90)`)
+    .attr('text-anchor', 'middle')
+    .text(yAxisLabel); 
+
+
+    const xAxisG = g.append('g').call(xAxis)
+   .attr('transform', `translate(0,${innerHeight})`);
 
     xAxisG.select('.domain').remove();
-
+  
     xAxisG.append('text')
-        .attr('class', 'axis-label')
-        .attr('y', 60)
-        .attr('x', innerWidth / 2)
-        .attr('fill', 'black')
-        .text(xAxisLabel); 
+       .attr('class', 'axis-label')
+       .attr('y', 60)
+       .attr('x', innerWidth / 2)
+       .attr('fill', 'black')
+       .text(xAxisLabel); 
 
+
+    const xAxisG2020 = g2020.append('g').call(xAxis)
+       .attr('transform', `translate(0,${innerHeight})`);
+    
+    xAxisG2020.select('.domain').remove();
+      
+    xAxisG2020.append('text')
+           .attr('class', 'axis-label')
+           .attr('y', 60)
+           .attr('x', innerWidth / 2)
+           .attr('fill', 'black')
+           .text(xAxisLabel); 
     
 
-    const lineGenerator = d3.line()
-                              .x(d => xScale(xValue(d)))
-                              .y(d => yScale(yValue(d)))
-                              .curve(d3.curveBasis);
+    const lineGenerator2019 = d3.line()
+       .x(d => xScale(xValue(d)))
+       .y(d => yScale(yValue(d)))
+       .curve(d3.curveBasis);
+
+    const lineGenerator2020 = d3.line()
+       .x(d => xScale(xValue(d)))
+       .y(d => yScale(yValue2020(d)))
+       .curve(d3.curveBasis);
     
     const lastYValue = d => 
-                yValue(d.values[d.values.length - 1]);
+            yValue(d.values[d.values.length - 1]);
 
-    nested = d3.nest()
-                    .key(colorValue)
-                    .entries(data)
-                    .sort((a, b) =>
-                    d3.descending(lastYValue(a), lastYValue(b))
-                );
-    nested  =   nested.slice(0,10);
-
-///////////////////
-    const formatYear = d3.timeFormat("%Y");
-    nest_year_state = d3.nest()
-                        .key(function(d) { 
-                            return (formatYear(d.FL_DATE));
-                         })
-                        .key( colorValue)
-                        .entries(data)
-                            .sort((a,b) => d3.descending(lastYValue(a),lastYValue(b)));
-
-    
-  
-    year_key = (nest_year_state.map((d=> d.key)));
+    nested20192020 = d3.nest()
+    .key(colorValue)
+    .entries(data)
+    .sort((a, b) =>
+    d3.descending(lastYValue(a), lastYValue(b)));
 
 
- 
-//////////////
-const nest_state_year = d3.nest()
-                        .key( colorValue)                        
-                        .key(function(d) { 
-                            return (formatYear(d.FL_DATE));
-                         })
-                        .entries(data)
-                            .sort((a,b) => d3.descending(lastYValue(a),lastYValue(b)));
+    nested20192020  =   nested20192020.slice(0,10);
+
+g.append('text')
+.attr('class', 'title')
+.attr('y', -15)
+.attr('x', 20)
+.text("2019");
+
+g2020.append('text')
+.attr('class', 'title')
+.attr('y', -15)
+.attr('x', 20)
+.text("2020");
 
 
-////////////////////
     colorScale.domain(nested.map(d => d.key));
 
-    ///////CREATING LIST MENU ///////////
-    var menu_list = d3.select("#ChartSummary").select("#Select-A-State")
 
+
+    ///////CREATING LIST MENU ///////////
+    var menu_list = d3.select("#MultiChartSummary").select("#Select-A-State")
+    
     menu_list.append("select").selectAll("option")
-            .data(nested)
-            .enter().append("option")
+            .data(nested20192020)
+                .enter().append("option")
                 .attr("value", function(d) { return d.key; })
             .text(function(d) {return(d.key); });
-
-
-   // var canvas = d3.select("#ChartSummary").data(nested);
+    
      // MENU
     menu_list.on('change', function() {
                     var selected_state = d3.select(this).select("select").property("value")
                     updateNested_data(selected_state);
                 });
 
-    // UPDATE the first value
-    init_value = "California"
-    initGraph_data(init_value);
-    var filter;
-    var output_line;
-
-function initGraph_data(new_value) {
-        console.log(new_value);
-
-        state_sel = nested.filter(function(d) {
-                return (new_value == d.key)
-                });
-
-        /*state_sel = ((nest_year_state.map(function(d)  {
-                     return d.values.filter(function(d) {
-                       if (d.key == new_value) return d.values;} ); } )));
- */
- 
-        //console.log("Filtered With Selection",(nest_state_year.filter(function(d)  {
-         //            return new_value == d.key ; } ).filter(function (d) { d.key == "2019";} )));
-         
-        //filter_state = (nest_state_year.filter(function(d)  { if (new_value == d.key ) return d.values[0] ; } ));
-        filter_state = (nest_state_year.filter(function(d)  { return (new_value == d.key ); } ))[0];
-        console.log("filter_state",filter_state)
-        //filter_year = filter_state.values.get(function (d) { return function(d) {  d.key;} ) ;//.filter(function (d) { if (d.key == "new_value") return d.values;})});
-        //console.log("filter_year", filter_year );
     
-         //state_sel = year_sel.filter(function(d) {
-        //       return (new_value == d.key)
-        //        });
-        console.log("ChartSummary:state_sel",state_sel);
+    init_value = "California";
+    initGraph_data(init_value);
+    var toUpdateline2019;
+    var toUpdateline2020;
+
+    function initGraph_data(new_value) {
+
+
+
+        state_sel_init = nested20192020.filter(function(d) {
+            return (new_value == d.key)
+            });
+
         
-
-        console.log("temp",state_sel.map(function(d) { return d.key;} ));
-
-        output_line = g.selectAll('.line-path').data(state_sel)
-             .enter().append('path')
-                .attr('class', 'line-path')
-                .attr('d', d => lineGenerator(d.values))
-     //           .attr('d', function (d) { 
-       //           if (formatYear(d.values[1].FL_DATE) == "2019") return lineGenerator(d.values[1]) ;} )
-                .attr('stroke', d => colorScale(new_value))
-                .style('fill', 'none')
-                .style('opacity', "1")
-                .style('stroke-width', "1.5px");
+        toUpdateline2019 = g.selectAll('.line-path').data(state_sel_init)
+            .enter().append('path')
+            .attr('class', 'line-path')
+            .attr('d', d => lineGenerator2019(d.values))
+            .attr('stroke', d => colorScale(d.key))
+            .style('fill', 'none')
+            .style('opacity', "1")
+            .style('stroke-width', "1.5px");
 
 
+        toUpdateline2020 = g2020.selectAll('.line-path').data(state_sel_init)
+            .enter().append('path')
+            .attr('class', 'line-path')
+            .attr('d', d => lineGenerator2020(d.values))
+            .attr('stroke', d => colorScale(d.key))
+            .style('fill', 'none')
+            .style('opacity', "1")
+            .style('stroke-width', "1.5px");
+    }
+    function updateNested_data(new_value) {
+    
 
-
-}
-function updateNested_data(new_value) {
-        console.log(new_value);
-
-        //FILTER
-        state_sel = nested.filter(function(d) {
+        state_sel = nested20192020.filter(function(d) {
                 return (new_value == d.key)
                 });
-        console.log(state_sel);
-        
-        //colorScale.domain(state_sel.map(d => d.key));
 
-        output_line.data(state_sel)
+        toUpdateline2019.data(state_sel)
                 .transition()
                 .duration(1000)
-                .attr('d', d => lineGenerator(d.values))
+                .attr('d', d => lineGenerator2019(d.values))
                 .attr('stroke', d => colorScale(d.key))
                 .style('fill', 'none')
                 .style('opacity', "1")
@@ -797,18 +812,25 @@ function updateNested_data(new_value) {
             //.attr("x", 850)
             //.style('fill','red')
             //.text('Temp Text' );
-     }
-    g.append('text')
-        .attr('class', 'title')
-        .attr('y', -15)
-        .attr('x', 20)
-        .text(title);
 
 
+        toUpdateline2020.data(state_sel)
+        .transition()
+        .duration(1000)
+        .attr('d', d => lineGenerator2020(d.values))
+        .attr('stroke', d => colorScale(d.key))
+        .style('fill', 'none')
+        .style('opacity', "1")
+        .style('stroke-width', "1.5px");
+    //.append('text')
+    //.attr('class', 'title')
+    //.attr('y', 300)
+    //.attr("x", 850)
+    //.style('fill','red')
+    //.text('Temp Text' );
+    }
+    
 })
-// .catch (function() {
- //   console.log("ERROR Reading CSV file")
-//})
 }
 </script>
 </body>
