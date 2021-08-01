@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <html>
-<title> CS416 Narrative visualization  </title>
+<title> Narrative Viz Assignment </title>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script> </script>
 
@@ -113,7 +113,7 @@
 
 <script>
 async function Introduction() { 
-    await d3.csv("2019AggAviationData.csv")  
+    await d3.csv("http://127.0.0.1:8887/2019AggAviationData.csv")  
     svg = d3.select("#Introduction").select("svg")
         const width = +svg.attr('width');
         const height = +svg.attr('height');
@@ -201,7 +201,7 @@ async function Introduction() {
 }
 async function ChartApril2019() {
 
-     await d3.csv("./2019AggAviationData.csv")    
+     await d3.csv("http://127.0.0.1:8887/2019AggAviationData.csv")    
     .then(function(data) {
        const timeParser = d3.timeParse("%Y-%m-%d")
 
@@ -209,6 +209,7 @@ async function ChartApril2019() {
             d['FLIGHT_COUNT'] = +d['FLIGHT_COUNT']
             d['FL_DATE'] = new Date(d['FL_DATE'])
         })
+
         svg = d3.select("#Arpil2019Chart").select("svg")
         const width = +svg.attr('width');
         const height = +svg.attr('height');
@@ -242,8 +243,8 @@ async function ChartApril2019() {
                       .tickSize(-innerHeight)
                       .tickPadding(15)
                       .ticks(10)
-                      .tickFormat(d3.timeFormat("%m/%d"));
-
+                      .tickFormat(d3.timeFormat("%b/%d"));
+  
 
         var yScale = d3.scaleLinear()
                        //.domain(d3.extent(data,yValue))
@@ -273,7 +274,12 @@ async function ChartApril2019() {
               .text(yAxisLabel); 
   
         const xAxisG = g.append('g').call(xAxis)
-                .attr('transform', `translate(0,${innerHeight})`);
+                .attr('transform', `translate(0,${innerHeight})`)
+                .selectAll("text")	
+                .style("text-anchor", "middle")
+                .attr("dx", "-.8em")
+                .attr("dy", ".15em")
+                .attr("transform", "rotate(-40)");
   
         xAxisG.select('.domain').remove();
   
@@ -313,13 +319,6 @@ async function ChartApril2019() {
             .style('opacity', "1")
             .style('stroke-width', "1.5px");
 
-
-        g.append('text')
-            .attr("transform", "translate(" + (width+3) + "," + 300 + ")")
-            .attr("dy", ".35em")
-            .attr("text-anchor", "start")
-             .style('fill','red')
-             .text('Temp Text' );
 
 
         g.append('text')
@@ -392,7 +391,7 @@ async function ChartApril2019() {
 }
 async function ChartApril2020() {
 
-    await d3.csv("./2020AggAviationData.csv")    
+    await d3.csv("http://127.0.0.1:8887/2020AggAviationData.csv")    
     .then(function(data) {
         const timeParser = d3.timeParse("%Y-%m-%d")
 
@@ -424,7 +423,7 @@ async function ChartApril2020() {
                      .attr('transform', `translate(${margin.left},${margin.top})`);
 
 
- 
+
         var xScale = d3.scaleTime()
                        .domain(d3.extent(data,xValue))
                        .range([0,innerWidth])
@@ -433,10 +432,10 @@ async function ChartApril2020() {
         var xAxis = d3.axisBottom(xScale)
                      // .scale(xScale)
                       .tickSize(-innerHeight)
-                      .tickPadding(10)
+                      .tickPadding(15)
                       .ticks(10)
-                      .tickFormat(d3.timeFormat("%m/%d"));
- 
+                      .tickFormat(d3.timeFormat("%b/%d"));
+
 
         var yScale = d3.scaleLinear()
                        //.domain(d3.extent(data,yValue))
@@ -466,7 +465,12 @@ async function ChartApril2020() {
               .text(yAxisLabel); 
   
         const xAxisG = g.append('g').call(xAxis)
-                .attr('transform', `translate(0,${innerHeight})`);
+                .attr('transform', `translate(0,${innerHeight})`)
+                .selectAll("text")	
+                .style("text-anchor", "middle")
+                .attr("dx", "-.8em")
+                .attr("dy", ".15em")
+                .attr("transform", "rotate(-40)");;
   
         xAxisG.select('.domain').remove();
   
@@ -576,7 +580,7 @@ async function ChartApril2020() {
     })
 }
 async function MultiChartSummary () {
-    await d3.csv("./2019And2020AggAviationDataYear.csv")    
+    await d3.csv("http://127.0.0.1:8887/2019And2020TwoColAggAviationData.csv")    
         .then(function(data) {
 
     dateParse = d3.timeParse("%Y-%m-%d");
@@ -597,8 +601,8 @@ async function MultiChartSummary () {
 
 
 
-    const margin2019 = { top: 40, right: 0, bottom: 88, left: 85 };
-    const margin2020 = { top: 40, right: 0, bottom: 88, left: 85 };
+    const margin2019 = { top: 40, right: 11, bottom: 88, left: 85 };
+    const margin2020 = { top: 40, right: 11, bottom: 88, left: 85 };
     
     const title = "Number of Flights' Trend for top-10 States in April 2019";
 
@@ -612,8 +616,6 @@ async function MultiChartSummary () {
 
     const innerWidth = width - margin2019.left - margin2019.right;
     const innerHeight = height - margin2019.top - margin2019.bottom;
-
-   // const innerWidth2020 = width - margin2020.left - margin2020.right;
 
 
     const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
@@ -793,7 +795,6 @@ g2020.append('text')
     }
     function updateNested_data(new_value) {
     
-
         state_sel = nested20192020.filter(function(d) {
                 return (new_value == d.key)
                 });
@@ -830,6 +831,9 @@ g2020.append('text')
     //.text('Temp Text' );
     }
     
+})
+.catch (function() {
+    console.log("ERROR Reading CSV file")
 })
 }
 </script>
