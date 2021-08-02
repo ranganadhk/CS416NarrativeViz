@@ -99,11 +99,11 @@ async function ChartApril2019() {
 
      await d3.csv("./2019AggAviationData.csv")    
     .then(function(data) {
-       const timeParser = d3.timeParse("%Y-%m-%d")
+       const dateParser = d3.timeParse("%Y-%m-%d")
 
        data.forEach(function(d) { 
             d['FLIGHT_COUNT'] = +d['FLIGHT_COUNT']
-            d['FL_DATE'] = new Date(d['FL_DATE'])
+            d['FL_DATE'] = dateParser(d['FL_DATE'])
         })
 
         svg = d3.select("#Arpil2019Chart").select("svg")
