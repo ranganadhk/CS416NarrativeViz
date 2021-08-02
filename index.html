@@ -10,6 +10,47 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script> </script>
 
 <style> 
+   .list2 {
+     list-style:disc outside none;
+     display:list-item; 
+     float: left;
+     margin-top: 0.5rem;
+     margin-left: 3rem;
+    }
+    .list3 {
+     list-style:disc outside none;
+     display:list-item; 
+     margin-top: -1rem;
+     margin-left: 3rem;
+     }
+   .list {
+     list-style:disc outside none;
+     display:list-item; 
+     float: left;
+     margin-top: 0.5rem;
+     margin-left: 7rem;
+    }
+    .list1 {
+     list-style:disc outside none;
+     display:list-item; 
+     margin-top: -1rem;
+     margin-left: 7rem;
+     }
+    h1 {
+        font-size: 35px;
+        float: left;
+        margin-top:4rem;
+        margin-left: 2rem;
+        margin-right: 7rem
+    }
+    p {
+        font-size: 27px;
+        float: left;
+        margin-top:2rem;
+        margin-left: 3rem;
+        margin-right: 7rem;
+    }
+    
     ul {
         margin:0;
         padding: 0;
@@ -19,7 +60,9 @@
         float: left;
         display: inline-flex;
         margin-right: 30px;
-        margin-block-start: 20px;
+        margin-block-start: 3rem;
+        margin-left: 3rem;
+        font-size: 1.5rem
     }
     .line {
       fill: none;
@@ -59,134 +102,17 @@
         fill: #635F5D;
     }
 
-    .body_text {
-        font-size: 1em;
-        padding:1.2em 20px 0em 20px;
-        margin: 0em;
-        fill: #635F5D;
-    }
-    .annotation-group {
-        position: fixed;
-        font-size: 15px;
-        top: 290px;
-        left: 30px;
-        right: 0;
-        display: grid;
-        min-height: 100%;
-        grid-template-rows: 1fr 100px;
-        grid-template-columns: 150px 1fr;
-        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-        opacity: 0.65;
-    }
-    .legend rect {
-        fill:white;
-        stroke:black;
-        opacity:0.7;
-    }
-    #Select-A-State {
-        font-size: 1.2rem;
-        opacity:1;
-        font-family: sans-serif;
-        color:black;
-        top: 30px;
-    }
-    #Select-A-State select{
-        font-size: 1rem;
-    }
 </style>
 <body onload='Introduction()'>
 
-<div id="Introduction">
-    <svg width=960 height=500>
-</div>
-<script>
-async function Introduction() { 
-    await d3.csv("./2019AggAviationData.csv")  
-    svg = d3.select("#Introduction").select("svg")
-        const width = +svg.attr('width');
-        const height = +svg.attr('height');
-        const margin = { top: 60, right: 160, bottom: 88, left: 105 };
-    const title1 = "COVID-19 Impact on the number of Flights and Their trends in USA Top-10 States ";
-    const title2 = "Comparison between April-2019 and April-2020";
-    
-    const g = svg.append('g')
-                     .attr('transform', `translate(${margin.left},${margin.top})`);
+    <h1> COVID-19 Impact on the number of Flights and Their trends in USA Top-10 States Comparison between April-2019 and April-2020 </h1>
+    <p> The COVID-19 impacted on the number of flights that flew globally.
+        This visualization illustrates the number of flights flew and their trend in April-2019 and in April-2020 in USA
+        and the flight trends are shown USA state-wise for April-2019 and April-2020. </p>
+    <p class="list"> <em> Next 2 slides provide total number of flights and thier trends for top-10 USA states. </em></p>
+    <p class="list1"> <em> Last slide allows user to select any state in the top-10 USA states.</em></p>
+    <p class="list2"> <em> Note: Total number of flights for a given state include both departed and arrived flights.</em></p>
+    <p class="list3"> <em>    Note: Top-10 states refer to in terms of total number of flights.</em></p>
 
-    g.append('text')
-            .attr('class', 'title')
-            .attr('y', 15)
-            .attr('x', -25)
-            //.style('font-size',24)
-            //.style("text-anchor",'middle')
-            .text(title1);
-    
-    g.append('text')
-        .attr('class', 'title')
-        .attr('y', 50)
-        .attr('x', 70)
-        //.style('font-size',24)
-        //.style("text-anchor",'middle')
-        .text(title2);
-
-    const body_text1 = "The COVID-19 impacted on the number of flights that flew globally.";
-    const body_text2 = "This visualization illustrates the number of flights flew and their trend in April-2019 and in April-2020 in USA";
-    const body_text3=  "and the flight trends are shown USA state-wise for April-2019 and April-2020. ";
-    const body_text4 = "        => Next 2 slides provide total number of flights and thier trends for top-10 states.";
-    const body_text5 = "        => Last slide allows user to select any state in the top-10 USA states."
-    const body_text6 = "Note: Total number of flights for a given state include both departed and arrived flights.";
-    const body_text7 = "Note: Top-10 states refer to in terms of total number of flights.";
-       
-        g.append('text')
-            .attr('class', 'body_text')
-            .attr('y', 100)
-            .attr('x', 60)
-            //.style('font-size',24)
-            //.style("text-anchor",'middle')
-            .text(body_text1);     
-        g.append('text')
-            .attr('class', 'body_text')
-            .attr('y', 120)
-            .attr('x', 60)
-            //.style('font-size',24)
-            //.style("text-anchor",'middle')
-            .text(body_text2);     
-        g.append('text')
-            .attr('class', 'body_text')
-            .attr('y', 140)
-            .attr('x', 60)
-            //.style('font-size',24)
-            //.style("text-anchor",'middle')
-            .text(body_text3);   
-        g.append('text')
-            .attr('class', 'body_text')
-            .attr('y', 170)
-            .attr('x', 90)
-            //.style('font-size',24)
-            //.style("text-anchor",'middle')
-            .text(body_text4);   
-        g.append('text')
-            .attr('class', 'body_text')
-            .attr('y', 190)
-            .attr('x', 90)
-            //.style('font-size',24)
-            //.style("text-anchor",'middle')
-            .text(body_text5);      
-
-        g.append('text')
-            .attr('class', 'body_text')
-            .attr('y', 220)
-            .attr('x', 60)
-            //.style('font-size',24)
-            //.style("text-anchor",'middle')
-            .text(body_text6);  
-        g.append('text')
-            .attr('class', 'body_text')
-            .attr('y', 240)
-            .attr('x', 60)
-            //.style('font-size',24)
-            //.style("text-anchor",'middle')
-            .text(body_text7);  
-}
-</script>
 </body>
 </html>
