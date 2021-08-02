@@ -101,7 +101,7 @@
 </div>
 <script>
 async function Introduction() { 
-    await d3.csv("http://127.0.0.1:8887/2019AggAviationData.csv")  
+    await d3.csv("./2019AggAviationData.csv")  
     svg = d3.select("#Introduction").select("svg")
         const width = +svg.attr('width');
         const height = +svg.attr('height');

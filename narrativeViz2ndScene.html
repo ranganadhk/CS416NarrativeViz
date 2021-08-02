@@ -95,7 +95,7 @@
 <script>
 async function ChartApril2019() {
 
-     await d3.csv("http://127.0.0.1:8887/2019AggAviationData.csv")    
+     await d3.csv("./2019AggAviationData.csv")    
     .then(function(data) {
        const timeParser = d3.timeParse("%Y-%m-%d")
 
