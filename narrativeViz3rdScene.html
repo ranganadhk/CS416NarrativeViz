@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+
+    <head> 
+        <ul class="nav">
+            <li><a href="./narrativeViz4thScene.html"> Next: USA State wide Interaction for Flight Trends in April 2019 and 2020</a></li>
+            <li><a href="./narrativeViz2ndScene.html"> Back: Flights Trend April 2019</a></li>
+    </head>
+<title> Flights Trend In April-2020 </title>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script> </script>
+
+<style> 
+    ul {
+        margin:0;
+        padding: 0;
+        list-style-type: none;
+    }
+    li {
+        float: left;
+        display: inline-flex;
+        margin-right: 30px;
+        margin-block-start: 20px;
+    }
+    .line {
+      fill: none;
+      stroke: steelblue;
+      stroke-width: 3px;
+    }
+    .line {
+      fill: none;
+      stroke: steelblue;
+      stroke-width: 3px;
+    }
+    .line-path {
+        fill: none;
+  
+        stroke-width: 5;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+        mix-blend-mode: multiply;
+    }
+    text {
+        font-family: sans-serif;
+    }
+
+    .tick text {
+        font-size: .7rem;
+        fill: #635F5D;
+    }
+
+    .tick line {
+        stroke: #C0C0BB;
+    }
+
+    .axis-label {
+        font-size: 2em;
+        fill: #8E8883;
+    }
+
+    .title {
+        font-size: 1.7em;
+        padding:1.2em 20px 0em 20px;
+        margin: 0em;
+        fill: #635F5D;
+    }
+
+    .body_text {
+        font-size: 1em;
+        padding:1.2em 20px 0em 20px;
+        margin: 0em;
+        fill: #635F5D;
+    }
+    .annotation-group {
+        position: fixed;
+        font-size: 15px;
+        top: 290px;
+        left: 30px;
+        right: 0;
+        display: grid;
+        min-height: 100%;
+        grid-template-rows: 1fr 100px;
+        grid-template-columns: 150px 1fr;
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        opacity: 0.65;
+    }
+</style>
+<body onload='ChartApril2020()'>
+
+<div id="Arpil2020Chart">
+    <svg width=960 height=500>
+</div>
+
+<script>
+async function ChartApril2020() {
+
+    await d3.csv("http://127.0.0.1:8887/2020AggAviationData.csv")    
+    .then(function(data) {
+        const timeParser = d3.timeParse("%Y-%m-%d")
+
+        data.forEach(function(d) { 
+             d['FLIGHT_COUNT'] = +d['FLIGHT_COUNT']
+             d['FL_DATE'] = new Date(d['FL_DATE'])
+         })
+        
+        console.log("ChartApril2020 data",data);
+        svg = d3.select("#Arpil2020Chart").select("svg")
+        const width = +svg.attr('width');
+        const height = +svg.attr('height');
+
+        const title = "Top-10 USA States: Flights' Trend In April 2020 (During Peak COVID-19)";
+
+        const xValue = d => d.FL_DATE;
+        const xAxisLabel = 'Date';
+        const yValue = d => d.FLIGHT_COUNT;
+        const circleRadius = 6;
+        const yAxisLabel = 'Number of Flights';
+
+        const colorValue = d => d.ORIGIN_STATE;
+
+        const margin = { top: 60, right: 160, bottom: 88, left: 105 };
+        const innerWidth = width - margin.left - margin.right;
+        const innerHeight = height - margin.top - margin.bottom;
+        const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+        const g = svg.append('g')
+                     .attr('transform', `translate(${margin.left},${margin.top})`);
+
+
+       // console.log(data);
+        var xScale = d3.scaleTime()
+                       .domain(d3.extent(data,xValue))
+                       .range([0,innerWidth])
+                       .nice()
+
+        var xAxis = d3.axisBottom(xScale)
+                     // .scale(xScale)
+                      .tickSize(-innerHeight)
+                      .tickPadding(15)
+                      .ticks(10)
+                      .tickFormat(d3.timeFormat("%b/%d"));
+        //console.log(xScale)
+
+        var yScale = d3.scaleLinear()
+                       //.domain(d3.extent(data,yValue))
+                       .domain([0,2600])
+                       .range([innerHeight,0])
+                       //.padding(0.1)
+            //yScale.domain(data.map(function(d) { return d.ORIGIN_STATE; }));
+        //var yAxis = d3.axisLeft()
+          //            .scale(yScale)
+
+        const yAxis = d3.axisLeft()
+                        .scale(yScale)
+                        .tickSize(-innerWidth)
+                        .tickPadding(10);
+
+
+         const yAxisG = g.append('g').call(yAxis);
+        yAxisG.selectAll('.domain').remove();
+  
+         yAxisG.append('text')
+              .attr('class', 'axis-label')
+              .attr('y', -60)
+              .attr('x', -innerHeight / 2)
+              .attr('fill', 'black')
+              .attr('transform', `rotate(-90)`)
+              .attr('text-anchor', 'middle')
+              .text(yAxisLabel); 
+  
+        const xAxisG = g.append('g').call(xAxis)
+                .attr('transform', `translate(0,${innerHeight})`)
+                .selectAll("text")	
+                .style("text-anchor", "middle")
+                .attr("dx", "-.8em")
+                .attr("dy", ".15em")
+                .attr("transform", "rotate(-40)");;
+  
+        xAxisG.select('.domain').remove();
+  
+        xAxisG.append('text')
+            .attr('class', 'axis-label')
+            .attr('y', 50)
+            .attr('x', innerWidth / 2)
+            .attr('fill', 'black')
+            .text(xAxisLabel); 
+  
+        
+
+        const lineGenerator = d3.line()
+                                  .x(d => xScale(xValue(d)))
+                                  .y(d => yScale(yValue(d)))
+                                  .curve(d3.curveBasis);
+        const lastYValue = d => 
+                    yValue(d.values[d.values.length - 1]);
+
+        nested = d3.nest()
+                    .key(colorValue)
+                    .entries(data)
+                    .sort((a, b) =>
+                         d3.descending(lastYValue(a), lastYValue(b)));
+ 
+ 
+         nested  =   nested.slice(0,10);
+        //console.log(nested)
+
+
+        colorScale.domain(nested.map(d => d.key));
+    
+        g.selectAll('.line-path').data(nested)
+          .enter().append('path')
+            .attr('class', 'line-path')
+            .attr('d', d => lineGenerator(d.values))
+            .attr('stroke', d => colorScale(d.key))
+            .style('fill', 'none')
+            .style('opacity', "1")
+            .style('stroke-width', "1.5px");
+
+        var states = g.selectAll(".states")
+            .data(nested)
+            .enter().append("g")
+            .attr("class", "states");  
+     
+        states.append("text")
+            .data(nested)
+            .datum(function(d) { return {name: d.key, value: d.values[d.values.length - 1]}; })
+            // .datum(function(d) { console.log(" list elements", d.key,  d.values[d.values.length - 1] );} )
+            .attr("transform", function(d) { return "translate(" + xScale(d.value.FL_DATE) + "," + yScale(d.value.FLIGHT_COUNT) + ")"; })
+            //.attr("transform", function(d) { console.log( "location points", "translate(" + xScale(d.value.FL_DATE) + "," + yScale(d.value.FLIGHT_COUNT) + ")"); })
+            .attr("dx", function(d) 
+                {   var x=10;
+                    return x; 
+                 } )
+            .attr("dy", function(d) 
+            {
+             var y=0; 
+             if (d.name == "Texas" ) y=-2;
+             if (d.name == "California" ) y=-2;
+             if (d.name == "Florida" ) y=-3;
+             if (d.name == "Illinois" ) y=-1;
+             if (d.name == "North Carolina" ) y = 0;
+             if (d.name == "Colorado" ) y = 6;
+             if (d.name == "Georgia" ) y=8;
+             if (d.name == "Pennsylvania" ) y = 15;
+             if (d.name == "Virginia" ) y = 25;
+             if (d.name == "Arizona" ) y = 35;
+             return y;
+            } )
+            .attr('stroke', d => colorScale(d.name))
+            .style('opacity', "1")
+            .style('font-size', ".7em")
+            .style('stroke-width', "1.3px")
+            .text(function(d) { return ( d.name ); });
+
+        g.append('text')
+            .attr('class', 'title')
+            .attr('y', -30)
+            .attr('x', -60)
+            .text(title);
+
+
+                    // Features of the annotation
+        const annotations = [
+        {
+            note: {
+                label: "",
+                title: "Flights' Trend is majorly impacted due to COVID-19"
+            },
+            connector: {
+                end: 'arrow', // 'dot' also available
+                stroke:'300',
+             },
+            x: 540,
+            //y: yValue(lastYValue),
+            y: 215,
+            dy: -80,
+            dx: 90
+        },
+        {
+            note: {
+                label: "",
+                title: "All 4 Weekends' consistant pattern also completely disturbed!"
+            },
+            connector: {
+                end: 'arrow', // 'dot' also available
+             },
+            x: 295,
+            //y: yValue(lastYValue),
+            y: 170,
+            dy: -60,
+            dx: 40
+        }].map((d) => {
+             //d.color = d => colorScale(d.key);
+             d.color = 'red';
+             return d;
+            });
+        // Add annotation to the chart
+        const makeAnnotations = d3.annotation()
+                                  .type(d3.annotationLabel)
+                                  .annotations(annotations);
+
+        g.selectAll('.annotation-group')
+     //   .select("#Arpil2019Chart")
+        .data([null])
+        .join(
+        (enter) =>
+          enter
+            .append('g')
+            .attr('class', 'annotation-group')
+            .call((enter) => enter.call(makeAnnotations)),
+             (update) =>
+          update.call((update) =>
+            update.call(makeAnnotations)
+          ),
+          (exit) => exit.remove()
+        );
+    })
+    .catch (function() {
+        console.log("ERROR in ChartApril2020 function")
+    })
+}
+</script>
+</body>
+</html>
