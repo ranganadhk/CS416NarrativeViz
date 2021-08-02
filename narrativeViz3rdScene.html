@@ -2,11 +2,13 @@
 <meta charset="utf-8">
 <html>
 
-    <head> 
-        <ul class="nav">
-            <li><a href="./narrativeViz4thScene.html"> Next: USA State wide Interaction for Flight Trends in April 2019 and 2020</a></li>
-            <li><a href="./narrativeViz2ndScene.html"> Back: Flights Trend April 2019</a></li>
-    </head>
+<head> 
+    <ul class="nav">
+        <li><a href="./narrativeViz4thScene.html"> Next: USA State wide Interaction for Flight Trends in April 2019 and 2020</a></li>
+        <li><a href="./narrativeViz2ndScene.html"> Back: Flights Trend April 2019</a></li>
+    </ul>
+</head>
+
 <title> Flights Trend In April-2020 </title>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script> </script>
@@ -105,7 +107,6 @@ async function ChartApril2020() {
              d['FL_DATE'] = new Date(d['FL_DATE'])
          })
         
-        console.log("ChartApril2020 data",data);
         svg = d3.select("#Arpil2020Chart").select("svg")
         const width = +svg.attr('width');
         const height = +svg.attr('height');
@@ -128,28 +129,21 @@ async function ChartApril2020() {
                      .attr('transform', `translate(${margin.left},${margin.top})`);
 
 
-       // console.log(data);
         var xScale = d3.scaleTime()
                        .domain(d3.extent(data,xValue))
                        .range([0,innerWidth])
                        .nice()
 
         var xAxis = d3.axisBottom(xScale)
-                     // .scale(xScale)
                       .tickSize(-innerHeight)
                       .tickPadding(15)
                       .ticks(10)
                       .tickFormat(d3.timeFormat("%b/%d"));
-        //console.log(xScale)
+
 
         var yScale = d3.scaleLinear()
-                       //.domain(d3.extent(data,yValue))
                        .domain([0,2600])
                        .range([innerHeight,0])
-                       //.padding(0.1)
-            //yScale.domain(data.map(function(d) { return d.ORIGIN_STATE; }));
-        //var yAxis = d3.axisLeft()
-          //            .scale(yScale)
 
         const yAxis = d3.axisLeft()
                         .scale(yScale)
@@ -203,7 +197,6 @@ async function ChartApril2020() {
  
  
          nested  =   nested.slice(0,10);
-        //console.log(nested)
 
 
         colorScale.domain(nested.map(d => d.key));
@@ -225,10 +218,8 @@ async function ChartApril2020() {
         states.append("text")
             .data(nested)
             .datum(function(d) { return {name: d.key, value: d.values[d.values.length - 1]}; })
-            // .datum(function(d) { console.log(" list elements", d.key,  d.values[d.values.length - 1] );} )
-            .attr("transform", function(d) { return "translate(" + xScale(d.value.FL_DATE) + "," + yScale(d.value.FLIGHT_COUNT) + ")"; })
-            //.attr("transform", function(d) { console.log( "location points", "translate(" + xScale(d.value.FL_DATE) + "," + yScale(d.value.FLIGHT_COUNT) + ")"); })
-            .attr("dx", function(d) 
+             .attr("transform", function(d) { return "translate(" + xScale(d.value.FL_DATE) + "," + yScale(d.value.FLIGHT_COUNT) + ")"; })
+           .attr("dx", function(d) 
                 {   var x=10;
                     return x; 
                  } )
@@ -268,11 +259,10 @@ async function ChartApril2020() {
                 title: "Flights' Trend is majorly impacted due to COVID-19"
             },
             connector: {
-                end: 'arrow', // 'dot' also available
+                end: 'arrow',
                 stroke:'300',
              },
             x: 540,
-            //y: yValue(lastYValue),
             y: 215,
             dy: -80,
             dx: 90
@@ -283,15 +273,13 @@ async function ChartApril2020() {
                 title: "All 4 Weekends' consistant pattern also completely disturbed!"
             },
             connector: {
-                end: 'arrow', // 'dot' also available
+                end: 'arrow',
              },
             x: 295,
-            //y: yValue(lastYValue),
             y: 170,
             dy: -60,
             dx: 40
         }].map((d) => {
-             //d.color = d => colorScale(d.key);
              d.color = 'red';
              return d;
             });
@@ -301,7 +289,6 @@ async function ChartApril2020() {
                                   .annotations(annotations);
 
         g.selectAll('.annotation-group')
-     //   .select("#Arpil2019Chart")
         .data([null])
         .join(
         (enter) =>

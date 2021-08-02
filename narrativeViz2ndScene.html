@@ -5,6 +5,7 @@
         <ul class="nav">
             <li><a href="./narrativeViz3rdScene.html">Next: Flights Trend in April 2020</a></li>
             <li><a href="./index.html"> Back: Introduction - Overview </a></li>
+        </ul>
     </head>
     
 <title> Narrative Viz Flights Trend April 2019 </title>
@@ -105,8 +106,6 @@ async function ChartApril2019() {
             d['FL_DATE'] = new Date(d['FL_DATE'])
         })
 
-        console.log("ChartApril2020 data",data);
-
         svg = d3.select("#Arpil2019Chart").select("svg")
         const width = +svg.attr('width');
         const height = +svg.attr('height');
@@ -129,28 +128,22 @@ async function ChartApril2019() {
                      .attr('transform', `translate(${margin.left},${margin.top})`);
 
 
-        //console.log(data);
+
         var xScale = d3.scaleTime()
                       .domain(d3.extent(data,xValue))
                       .range([0,innerWidth])
                       .nice()
 
         var xAxis = d3.axisBottom(xScale)
-                     // .scale(xScale)
                       .tickSize(-innerHeight)
                       .tickPadding(15)
                       .ticks(10)
                       .tickFormat(d3.timeFormat("%b/%d"));
-        //console.log(xScale)
+
 
         var yScale = d3.scaleLinear()
-                       //.domain(d3.extent(data,yValue))
                        .domain([0,2600])
                        .range([innerHeight,0])
-                       //.padding(0.1)
-            //yScale.domain(data.map(function(d) { return d.ORIGIN_STATE; }));
-        //var yAxis = d3.axisLeft()
-          //            .scale(yScale)
 
         const yAxis = d3.axisLeft()
                         .scale(yScale)
@@ -158,7 +151,7 @@ async function ChartApril2019() {
                         .tickPadding(10);
 
 
-         const yAxisG = g.append('g').call(yAxis);
+        const yAxisG = g.append('g').call(yAxis);
         yAxisG.selectAll('.domain').remove();
   
          yAxisG.append('text')
@@ -205,9 +198,6 @@ async function ChartApril2019() {
 
         nested  =   nested.slice(0,10);
 
-        console.log("flight_count",nested)
-
-
         colorScale.domain(nested.map(d => d.key));
         
         g.selectAll('.line-path').data(nested)
@@ -228,9 +218,7 @@ async function ChartApril2019() {
         states.append("text")
             .data(nested)
             .datum(function(d) { return {name: d.key, value: d.values[d.values.length - 1]}; })
-           // .datum(function(d) { console.log(" list elements", d.key,  d.values[d.values.length - 1] );} )
             .attr("transform", function(d) { return "translate(" + xScale(d.value.FL_DATE) + "," + yScale(d.value.FLIGHT_COUNT) + ")"; })
-            //.attr("transform", function(d) { console.log( "location points", "translate(" + xScale(d.value.FL_DATE) + "," + yScale(d.value.FLIGHT_COUNT) + ")"); })
             .attr("dx", function(d) 
                 {   var x=4;
                     if (d.name == "Georgia" ) x=5;
@@ -280,10 +268,9 @@ async function ChartApril2019() {
                 title: "All 4 Weekends have consistant pattern with dip!"
             },
             connector: {
-                end: 'arrow', // 'dot' also available
+                end: 'arrow', 
              },
             x: 140,
-            //y: yValue(lastYValue),
             y: 250,
             dy: 30,
             dx: 60
@@ -298,7 +285,6 @@ async function ChartApril2019() {
                                   .annotations(annotations);
 
         g.selectAll('.annotation-group')
-     //   .select("#Arpil2019Chart")
         .data([null])
         .join(
         (enter) =>
@@ -315,7 +301,7 @@ async function ChartApril2019() {
 
     })
     .catch (function() {
-     //   console.log("ERROR in ChartApril2019 function")
+        console.log("ERROR in ChartApril2019 function")
     })
 }
 </script>

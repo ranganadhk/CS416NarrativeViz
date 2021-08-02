@@ -5,9 +5,10 @@
 <head> 
     <ul class="nav">
         <li><a href="./narrativeViz3rdScene.html">Back: Flights Trend in April 2020</a></li>
+    </ul>
 </head>
 
-<title> Narrative Viz Assignment </title>
+<title> Narrative Viz Scene 4 </title>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script> </script>
 
@@ -120,7 +121,7 @@ async function MultiChartSummary () {
         d['FLIGHT_COUNT_2020'] = +d['FLIGHT_COUNT_2020'];
         d['FL_DATE'] = +[dateFormat(dateParse(d['FL_DATE']))];
     })
-    console.log("MultiChartSummary data", data);
+
 
 
     svg2019 = d3.select("#MultiChartSummary").select("#LineChart").select("#svg2019")
@@ -128,8 +129,6 @@ async function MultiChartSummary () {
 
     const width = +svg2019.attr('width');
     const height = +svg2019.attr('height');
-
-    console.log("MultiChartSummary 2019 width and height",width,height);
 
     const margin2019 = { top: 60, right: 11, bottom: 88, left: 85 };
     const margin2020 = { top: 60, right: 11, bottom: 88, left: 85 };
@@ -147,8 +146,6 @@ async function MultiChartSummary () {
     const innerWidth = width - margin2019.left - margin2019.right;
     const innerHeight = height - margin2019.top - margin2019.bottom;
 
-   // const innerWidth2020 = width - margin2020.left - margin2020.right;
-
 
     const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
@@ -160,7 +157,6 @@ async function MultiChartSummary () {
 
     var xScale = d3.scaleTime()
                    .domain(d3.extent(data,xValue))
-                   //.domain([new Date("04-01"), new Date ("04-30")])
                    .range([0,innerWidth])
                    .nice()
 
@@ -169,7 +165,6 @@ async function MultiChartSummary () {
                       .tickSize(-innerHeight)
                       .tickPadding(15)
                       .ticks(10)
-                      //.tickFormat(d3.timeFormat("%m/%d"));
 
     var yScale = d3.scaleLinear()
                       .domain([0,2600])
@@ -270,7 +265,6 @@ async function MultiChartSummary () {
         .attr('class', 'title')
         .attr('y', -15)
         .attr('x', -45)
-       // .stlye("font-size","1em")
         .text("Selected Flight's Trend in April-2020");
 
 
@@ -299,12 +293,9 @@ async function MultiChartSummary () {
 
     function initGraph_data(new_value) {
 
-        console.log(new_value);
-
         state_sel_init = nested20192020.filter(function(d) {
             return (new_value == d.key)
             });
-        console.log("MultiChartSummary initGraph_data state_sel_init",state_sel_init);
         
         toUpdateline2019 = g.selectAll('.line-path')
             .data(state_sel_init)
@@ -334,10 +325,8 @@ async function MultiChartSummary () {
         states2019.append("text")
             .data(state_sel_init)
             .datum(function(d) { return {name: d.key, value: d.values[d.values.length - 1]}; })
-            // .datum(function(d) { console.log(" list elements", d.key,  d.values[d.values.length - 1] );} )
             .attr("transform", function(d) { return "translate(" + xScale(d.value.FL_DATE) + "," + yScale(d.value.FLIGHT_COUNT_2019) + ")"; })
-            //.attr("transform", function(d) { console.log( "location points", "translate(" + xScale(d.value.FL_DATE) + "," + yScale(d.value.FLIGHT_COUNT_2019) + ")"); })
-            .attr("dx", -60)
+           .attr("dx", -60)
             .attr("dy",-17)
             .attr('stroke', d => colorScale(d.name))
             .style('opacity', "1")
@@ -353,9 +342,7 @@ async function MultiChartSummary () {
         states2020.append("text")
             .data(state_sel_init)
             .datum(function(d) { return {name: d.key, value: d.values[d.values.length - 1]}; })
-            // .datum(function(d) { console.log(" list elements", d.key,  d.values[d.values.length - 1] );} )
-            .attr("transform", function(d) { return "translate(" + xScale(d.value.FL_DATE) + "," + yScale(d.value.FLIGHT_COUNT_2020) + ")"; })
-            //.attr("transform", function(d) { console.log( "location points", "translate(" + xScale(d.value.FL_DATE) + "," + yScale(d.value.FLIGHT_COUNT_2020) + ")"); })
+           .attr("transform", function(d) { return "translate(" + xScale(d.value.FL_DATE) + "," + yScale(d.value.FLIGHT_COUNT_2020) + ")"; })
             .attr("dx", -60)
             .attr("dy", -10)
             .attr('stroke', d => colorScale(d.name))
@@ -366,14 +353,9 @@ async function MultiChartSummary () {
     }
     function updateNested_data(new_value) {
     
-        console.log(new_value);
-        console.log("MultiChartSummary updateNested_data before state_sel:nested20192020",nested20192020);
-        state_sel = nested20192020.filter(function(d) {
+         state_sel = nested20192020.filter(function(d) {
                 return (new_value == d.key)
                 });
-
-        console.log("MultiChartSummary updateNested_data after state_sel:nested20192020",nested20192020);
-        console.log("MultiChartSummary updateNested_data:state_sel",state_sel);
 
         toUpdateline2019.data(state_sel)
                 .transition()
