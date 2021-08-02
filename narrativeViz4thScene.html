@@ -207,7 +207,12 @@ async function MultiChartSummary () {
 
 
     const xAxisG = g.append('g').call(xAxis)
-   .attr('transform', `translate(0,${innerHeight})`);
+    .attr('transform', `translate(0,${innerHeight})`)
+    .selectAll("text")	
+    .style("text-anchor", "middle")
+    .attr("dx", "-.8em")
+    .attr("dy", ".15em")
+    .attr("transform", "rotate(-40)");
 
     xAxisG.select('.domain').remove();
   
@@ -220,7 +225,12 @@ async function MultiChartSummary () {
 
 
     const xAxisG2020 = g2020.append('g').call(xAxis)
-       .attr('transform', `translate(0,${innerHeight})`);
+       .attr('transform', `translate(0,${innerHeight})`)
+       .selectAll("text")	
+        .style("text-anchor", "middle")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", "rotate(-40)");
     
     xAxisG2020.select('.domain').remove();
       
